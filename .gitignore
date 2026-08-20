@@ -1,0 +1,37 @@
+# -------------------- Python caches -------------------- # 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+.tmp/
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# ------------------ download models ------------------- # 
+models/
+
+
+# ------------------ training outputs ------------------ # 
+outputs/
+*.ckpt
+*.pt
+*.pth
+*.log
+
+# ----------- Personal environment variables ----------- # 
+.vscode/
+.idea/
+.env
+.DS_Store
+.claude/
+.codex/
+.agents/
+repo/
+docs/notes/
+docs/papers/
