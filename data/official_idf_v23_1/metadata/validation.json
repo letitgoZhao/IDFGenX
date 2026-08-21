@@ -1,0 +1,812 @@
+{
+  "conversion_results": [
+    {
+      "duration_seconds": 0.149,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled.idf\n"
+    },
+    {
+      "duration_seconds": 0.144,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled3SurfaceZone.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled3SurfaceZone.idf\n"
+    },
+    {
+      "duration_seconds": 0.168,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled_OtherEquipmentWithFuel.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled_OtherEquipmentWithFuel.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf\n"
+    },
+    {
+      "duration_seconds": 0.131,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1A.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1A.idf\n"
+    },
+    {
+      "duration_seconds": 0.13,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1B-Solution.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1B-Solution.idf\n"
+    },
+    {
+      "duration_seconds": 0.136,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1C-Solution.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1C-Solution.idf\n"
+    },
+    {
+      "duration_seconds": 0.133,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1D-Solution.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\BasicsFiles\\Exercise2.idf\n"
+    },
+    {
+      "duration_seconds": 0.299,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/CmplxGlz_SchedSurfGains.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\CmplxGlz_SchedSurfGains.idf\n"
+    },
+    {
+      "duration_seconds": 0.15,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/CmplxGlz_SingleZone_DoubleClearAir.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\CmplxGlz_SingleZone_DoubleClearAir.idf\n"
+    },
+    {
+      "duration_seconds": 0.135,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/DaylightingDeviceShelf.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DaylightingDeviceShelf.idf\n"
+    },
+    {
+      "duration_seconds": 0.143,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/DaylightingDeviceTubular.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DaylightingDeviceTubular.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/DElight-Detailed-Comparison.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DElight-Detailed-Comparison.idf\n"
+    },
+    {
+      "duration_seconds": 0.136,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/EquivalentLayerWindow.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\EquivalentLayerWindow.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\Flr_Rf_8Sides.idf\n"
+    },
+    {
+      "duration_seconds": 0.144,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/GeometryTest.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\GeometryTest.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/InternalMass_wZoneList.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\InternalMass_wZoneList.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PassiveTrombeWall.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PassiveTrombeWall.idf\n"
+    },
+    {
+      "duration_seconds": 0.14,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirTables_SQL.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirTables_SQL.idf\n"
+    },
+    {
+      "duration_seconds": 0.144,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWindowBlind.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWindowBlind.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWithDaylighting.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDaylighting.idf\n"
+    },
+    {
+      "duration_seconds": 0.141,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWithDaylightingAndShadeControl.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDaylightingAndShadeControl.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWithDoubleFacadeDaylighting.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDoubleFacadeDaylighting.idf\n"
+    },
+    {
+      "duration_seconds": 0.136,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/ReflectiveAdjacentBuilding.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\ReflectiveAdjacentBuilding.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/SolarShadingTest.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\SolarShadingTest.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/StackedZonesWithInterzoneIRTLayers.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\StackedZonesWithInterzoneIRTLayers.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/StormWindow.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\StormWindow.idf\n"
+    },
+    {
+      "duration_seconds": 0.149,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/SurfaceTest.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\SurfaceTest.idf\n"
+    },
+    {
+      "duration_seconds": 0.146,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/UserInputViewFactorFile-LshapedZone.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\UserInputViewFactorFile-LshapedZone.idf\n"
+    },
+    {
+      "duration_seconds": 0.149,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/VaryingLocationAndOrientation.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\VaryingLocationAndOrientation.idf\n"
+    },
+    {
+      "duration_seconds": 0.14,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/WindowTestsSimple.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\WindowTestsSimple.idf\n"
+    }
+  ],
+  "energyplus_version": "23.1",
+  "hash_results": [
+    {
+      "actual_sha256": "59962a696652059e7639bc65e686a381415e04e8dcb8648dac2795aaee03054d",
+      "copied_relative_path": "idf/templates/ASHRAE_2005_HOF_Materials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/ASHRAE_2005_HOF_Materials.idf"
+    },
+    {
+      "actual_sha256": "59d4db24f11ed8a34a11dc2cc25527a6a5e228797e070478ba80b763a5904a94",
+      "copied_relative_path": "idf/templates/CompositeWallConstructions.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/CompositeWallConstructions.idf"
+    },
+    {
+      "actual_sha256": "8f5abaa0e5416b117dbd0dc76e6d2a05bf77089fe9bc1c5ef18fa56a09465a68",
+      "copied_relative_path": "idf/templates/Schedules.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/Schedules.idf"
+    },
+    {
+      "actual_sha256": "e3f5f2a5385b66800bab29dc9b0a1ba039a311a7f6fd95d7cf7354ed1557dcf6",
+      "copied_relative_path": "idf/templates/SurfaceColorSchemes.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/SurfaceColorSchemes.idf"
+    },
+    {
+      "actual_sha256": "6b7dd8b92610ef08eedb2c42a65ee87eb174bd8a1fdab505ad4bbc6392774d90",
+      "copied_relative_path": "idf/templates/USHolidays-DST.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/USHolidays-DST.idf"
+    },
+    {
+      "actual_sha256": "00367c281dc716b375b3210c897a1a154c7556abad8e1e3d54f987b893a17251",
+      "copied_relative_path": "idf/templates/WindowBlindMaterials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowBlindMaterials.idf"
+    },
+    {
+      "actual_sha256": "b2f709e971ebc2c2eea0b123d5c41b70b6b27d5e17ac7d6589778124d2692637",
+      "copied_relative_path": "idf/templates/WindowConstructs.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowConstructs.idf"
+    },
+    {
+      "actual_sha256": "5f3be99a68e5c702b2d2fd5d23a81ac641be663ff1aaefade0a660608f435c18",
+      "copied_relative_path": "idf/templates/WindowGasMaterials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowGasMaterials.idf"
+    },
+    {
+      "actual_sha256": "8a43b7559e0a8675ae2075bb0fe6ae16b07bd4397b4e3f76670c48373e09b310",
+      "copied_relative_path": "idf/templates/WindowGlassMaterials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowGlassMaterials.idf"
+    },
+    {
+      "actual_sha256": "1f9bf41fd4b0b0be2d617d0d3c1e38c681a155d5ea5532e908c4e1b3ec952a04",
+      "copied_relative_path": "idf/templates/WindowScreenMaterials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowScreenMaterials.idf"
+    },
+    {
+      "actual_sha256": "f0c74e8245ab3f82e8db0f75c4f3b963cefa1fb19c2fd85fd0d54eb340f1e2e8",
+      "copied_relative_path": "idf/templates/WindowShadeMaterials.idf",
+      "passed": true,
+      "source_relative_path": "DataSets/WindowShadeMaterials.idf"
+    },
+    {
+      "actual_sha256": "e61d8338ac6dba7861a194dfb190f02cfd5109b13aba4db3823897fe56b232e1",
+      "copied_relative_path": "idf/geometry_references/1ZoneParameterAspect.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/1ZoneParameterAspect.idf"
+    },
+    {
+      "actual_sha256": "a7fd006481d11882010436e49245cedd7ff5804dc8c9077290048472ddafc922",
+      "copied_relative_path": "idf/simple/1ZoneUncontrolled.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled.idf"
+    },
+    {
+      "actual_sha256": "d91b086fb171de135704bbb7bb54d8d63b10071902a21a064cbdb56ac693434a",
+      "copied_relative_path": "idf/simple/1ZoneUncontrolled3SurfaceZone.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled3SurfaceZone.idf"
+    },
+    {
+      "actual_sha256": "24be14e86cd2623e3084e0beb1f68938ab09f91d4d32da7085f01904fe935611",
+      "copied_relative_path": "idf/simple/1ZoneUncontrolled_OtherEquipmentWithFuel.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled_OtherEquipmentWithFuel.idf"
+    },
+    {
+      "actual_sha256": "e6593d2a6754b7b830999e7889cc9ffc9b44fb91122eb0cd7c79c9545c921148",
+      "copied_relative_path": "idf/simple/1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf"
+    },
+    {
+      "actual_sha256": "5b0c580782201f8391b71b78f322b8ae106ff1d6a872c2e1a5d2c3dec5743213",
+      "copied_relative_path": "idf/geometry_references/5Zone_IdealLoadsAirSystems_ReturnPlenum.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/5Zone_IdealLoadsAirSystems_ReturnPlenum.idf"
+    },
+    {
+      "actual_sha256": "6fdf9d5594ace1eb0b080e499424b5e67b7a09bc850ea00e80a352a09bc18237",
+      "copied_relative_path": "idf/geometry_references/5ZoneAirCooledWithSpaces.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/5ZoneAirCooledWithSpaces.idf"
+    },
+    {
+      "actual_sha256": "fa9c08ab49a9a029dd2eea3b5d6aefd1a2afad5e5e731b295f789802a4800bde",
+      "copied_relative_path": "idf/geometry_references/5ZoneCostEst.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/5ZoneCostEst.idf"
+    },
+    {
+      "actual_sha256": "a9e5c4e61188ccc5364f6a07cdcf4f2a830ed88f69d6c84c35f0c82633217c1f",
+      "copied_relative_path": "idf/geometry_references/5ZoneSupRetPlenRAB.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/5ZoneSupRetPlenRAB.idf"
+    },
+    {
+      "actual_sha256": "c6d94866c5546a000c64ff47edc1015c569e699c3eb4643273f8e44bf4d7d200",
+      "copied_relative_path": "idf/geometry_references/ActiveTrombeWall.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ActiveTrombeWall.idf"
+    },
+    {
+      "actual_sha256": "c2b06e62938363f021e34f078c9e88e4133b699a47da6156886caee257cd0f9a",
+      "copied_relative_path": "idf/geometry_references/AirflowNetwork3zVent.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/AirflowNetwork3zVent.idf"
+    },
+    {
+      "actual_sha256": "e6ed42cab397e2078b36b69f79f577eb7c43cedbbfbc89ea4ccef0cc530e690e",
+      "copied_relative_path": "idf/geometry_references/AirflowNetwork_Attic_Duct.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/AirflowNetwork_Attic_Duct.idf"
+    },
+    {
+      "actual_sha256": "4616b280c5b09a600a2a07847cf431a50a416d4dfabf46632add091ea6e028f9",
+      "copied_relative_path": "idf/geometry_references/ASHRAE901_ApartmentHighRise_STD2019_Denver.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ASHRAE901_ApartmentHighRise_STD2019_Denver.idf"
+    },
+    {
+      "actual_sha256": "96bfd3e2145061d7c8f3e25760f7711ed0295b97d9d1a1c4b98025517b76078a",
+      "copied_relative_path": "idf/geometry_references/ASHRAE901_ApartmentMidRise_STD2019_Denver.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ASHRAE901_ApartmentMidRise_STD2019_Denver.idf"
+    },
+    {
+      "actual_sha256": "ae0d0c2e5b2c5708b6725e8975741d911ce8ca25427125628f352a398734f6e5",
+      "copied_relative_path": "idf/geometry_references/ASHRAE901_OfficeSmall_STD2019_Denver.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ASHRAE901_OfficeSmall_STD2019_Denver.idf"
+    },
+    {
+      "actual_sha256": "f24273d1079b33ef8b4ed7acd81e54ad2a815fd90ddbb1184f26fa2b777045c1",
+      "copied_relative_path": "idf/geometry_references/ASHRAE901_Warehouse_STD2019_Denver.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ASHRAE901_Warehouse_STD2019_Denver.idf"
+    },
+    {
+      "actual_sha256": "82511e385ce93086c09f382de4860c44a0aeb0c19881de91eea02ce8d31050a2",
+      "copied_relative_path": "idf/geometry_references/AtticRoof_RadiantBarriers.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/AtticRoof_RadiantBarriers.idf"
+    },
+    {
+      "actual_sha256": "8d33a3ad539a7f90518537fb4023fc81480f7d990c50721114f061231a038fdd",
+      "copied_relative_path": "idf/geometry_references/BasicsFiles/AdultEducationCenter.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/AdultEducationCenter.idf"
+    },
+    {
+      "actual_sha256": "aad0aef6232c3377a59a7edde9c56acdcc622d8d284062088a3b0f28ea60f62d",
+      "copied_relative_path": "idf/simple/BasicsFiles/Exercise1A.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1A.idf"
+    },
+    {
+      "actual_sha256": "8d20c5613b3065a6cbeb90cd1464375414ed4465c4eed05224b5edfbb06ca445",
+      "copied_relative_path": "idf/simple/BasicsFiles/Exercise1B-Solution.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1B-Solution.idf"
+    },
+    {
+      "actual_sha256": "febced34eddab2e2baa42369d9e6f3af56f393785dfa0d8c801a1653104d66e4",
+      "copied_relative_path": "idf/simple/BasicsFiles/Exercise1C-Solution.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1C-Solution.idf"
+    },
+    {
+      "actual_sha256": "d08dd7f55627560a5e8a84b666e13f6a3f448f7ba386c8d35de3e24671a1ac1f",
+      "copied_relative_path": "idf/simple/BasicsFiles/Exercise1D-Solution.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf"
+    },
+    {
+      "actual_sha256": "615c2fefa1358401f2fce1df5b241a3d859293a5bd6444db0a9a35fac0fd33b1",
+      "copied_relative_path": "idf/complex/BasicsFiles/Exercise2.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf"
+    },
+    {
+      "actual_sha256": "794a36ebecc5393388a9287f1d8813c58623b239cb2350e7f818262bd508200c",
+      "copied_relative_path": "idf/simple/CmplxGlz_SchedSurfGains.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/CmplxGlz_SchedSurfGains.idf"
+    },
+    {
+      "actual_sha256": "0ba1b199a2b901b8511379022ccbf2935f1f12aa8b9fe95b0d1d34c54e52a927",
+      "copied_relative_path": "idf/simple/CmplxGlz_SingleZone_DoubleClearAir.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/CmplxGlz_SingleZone_DoubleClearAir.idf"
+    },
+    {
+      "actual_sha256": "46895f6a72dba37bc429678f0a0f5e67c93f4a87d5eaf927af5e43b796e7d8ea",
+      "copied_relative_path": "idf/complex/DaylightingDeviceShelf.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/DaylightingDeviceShelf.idf"
+    },
+    {
+      "actual_sha256": "704001036941733e461be8a1fd14276933336bfab7f3566694fa8e78c8e14b1f",
+      "copied_relative_path": "idf/complex/DaylightingDeviceTubular.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/DaylightingDeviceTubular.idf"
+    },
+    {
+      "actual_sha256": "879e0eb85ea5e241b9c2112e630277b9e571e379184e9016092546f6c655ff36",
+      "copied_relative_path": "idf/complex/DElight-Detailed-Comparison.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/DElight-Detailed-Comparison.idf"
+    },
+    {
+      "actual_sha256": "ff71eee8b7133529429685c4c291fd52cd8d2900549b73d73eac9b48eb5782d1",
+      "copied_relative_path": "idf/simple/EquivalentLayerWindow.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/EquivalentLayerWindow.idf"
+    },
+    {
+      "actual_sha256": "8e5b888bfdd82067536614cf49cca32eae427df2fd3942296fbc1b847b924975",
+      "copied_relative_path": "idf/complex/Flr_Rf_8Sides.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf"
+    },
+    {
+      "actual_sha256": "01d9bab0ffa9216a6bfd36fffb1d5a0fb99e493c76081f1bf44337baa76552cc",
+      "copied_relative_path": "idf/complex/GeometryTest.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/GeometryTest.idf"
+    },
+    {
+      "actual_sha256": "30a8abebf429cf1983ec787076a58109690df967c6158e8a4a236074769b021e",
+      "copied_relative_path": "idf/complex/InternalMass_wZoneList.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/InternalMass_wZoneList.idf"
+    },
+    {
+      "actual_sha256": "666caec1b55ec79edd96cb68067a816a1016a237e9f7771c9750e01beb3fdd5b",
+      "copied_relative_path": "idf/geometry_references/LBuilding-G000.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/LBuilding-G000.idf"
+    },
+    {
+      "actual_sha256": "ba1b9aea311d19dd9c07b5b35a546acfb6a6491f6e4de3fe9ce915b4a6431b46",
+      "copied_relative_path": "idf/geometry_references/MultiStory.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/MultiStory.idf"
+    },
+    {
+      "actual_sha256": "0dc911f0baddcdd0de823883a228dc574cd722520e15b509513e4945d1562da0",
+      "copied_relative_path": "idf/complex/PassiveTrombeWall.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PassiveTrombeWall.idf"
+    },
+    {
+      "actual_sha256": "86737a42dc869dacd98dd3e2946e686f88024d647db66032216ba8c8e0d7a027",
+      "copied_relative_path": "idf/geometry_references/Plenum.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/Plenum.idf"
+    },
+    {
+      "actual_sha256": "1c37bbb3b91451e0300d3e5cc8897b43bd9ca730edf953ee099c62c721bb143d",
+      "copied_relative_path": "idf/complex/PurchAirTables_SQL.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PurchAirTables_SQL.idf"
+    },
+    {
+      "actual_sha256": "05d311bfb4a2b26dcd930e650e088cf7607cfe4fedb24e2b493c515116b89ba3",
+      "copied_relative_path": "idf/complex/PurchAirWindowBlind.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PurchAirWindowBlind.idf"
+    },
+    {
+      "actual_sha256": "ccc209ad62af7d1684cf792f7a44df34b7e81785b5a93bd174af51d90ee4a4b0",
+      "copied_relative_path": "idf/complex/PurchAirWithDaylighting.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PurchAirWithDaylighting.idf"
+    },
+    {
+      "actual_sha256": "f464ea5f34c667d54c906edf9de7696173cc27453e9eea305b42b511a8e2ef1a",
+      "copied_relative_path": "idf/complex/PurchAirWithDaylightingAndShadeControl.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PurchAirWithDaylightingAndShadeControl.idf"
+    },
+    {
+      "actual_sha256": "d294573a0748057a3d014add30a4414e508cc77878a49b92e6c4082299f0fb72",
+      "copied_relative_path": "idf/complex/PurchAirWithDoubleFacadeDaylighting.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/PurchAirWithDoubleFacadeDaylighting.idf"
+    },
+    {
+      "actual_sha256": "6a9ff2d5e17adb51390bba4e3d230327f11da4c798c8f54bd0d4fdcf5bc0da2c",
+      "copied_relative_path": "idf/geometry_references/RefBldgLargeOfficeNew2004_Chicago.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/RefBldgLargeOfficeNew2004_Chicago.idf"
+    },
+    {
+      "actual_sha256": "e93e70763cf46c0610fbdf48773281b8ec26ee2af5bcd5e96e976f7ba643f684",
+      "copied_relative_path": "idf/geometry_references/RefBldgPrimarySchoolNew2004_Chicago.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/RefBldgPrimarySchoolNew2004_Chicago.idf"
+    },
+    {
+      "actual_sha256": "f0239f43eb06886e36e0e5ac22f4026f74357e175c97513fb1dda1059422310b",
+      "copied_relative_path": "idf/geometry_references/RefBldgSmallHotelNew2004_Chicago.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/RefBldgSmallHotelNew2004_Chicago.idf"
+    },
+    {
+      "actual_sha256": "716ec7fd99d9404eed2db1aee90f97b40fce358ebfebf36d41a338e0817e0636",
+      "copied_relative_path": "idf/geometry_references/RefBldgStand-aloneRetailNew2004_Chicago.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/RefBldgStand-aloneRetailNew2004_Chicago.idf"
+    },
+    {
+      "actual_sha256": "72e1d83ecf42e018b3503663f9bc43b74b47c5e42af5a54bcc19ee193f526038",
+      "copied_relative_path": "idf/geometry_references/RefBldgWarehouseNew2004_Chicago.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/RefBldgWarehouseNew2004_Chicago.idf"
+    },
+    {
+      "actual_sha256": "311f7266ab14e1ee95f60856179482356228e2cc43ee3ec7a89310b9fecf5e78",
+      "copied_relative_path": "idf/complex/ReflectiveAdjacentBuilding.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/ReflectiveAdjacentBuilding.idf"
+    },
+    {
+      "actual_sha256": "e8ca580ba30ce902e36ccf6070b406f0e7e3a1605c2a5a6f12720a0344d41e86",
+      "copied_relative_path": "idf/geometry_references/SingleFamilyHouse_TwoSpeed_ZoneAirBalance.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/SingleFamilyHouse_TwoSpeed_ZoneAirBalance.idf"
+    },
+    {
+      "actual_sha256": "3d6615e4328a5a247d98c8ead264ad4f4c63a120d7cb3fa8fce4316e14642fe4",
+      "copied_relative_path": "idf/complex/SolarShadingTest.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/SolarShadingTest.idf"
+    },
+    {
+      "actual_sha256": "9298b16375a407cb7827a6e1085da113fcab575a969d829aa6f3458dfb0854f5",
+      "copied_relative_path": "idf/complex/StackedZonesWithInterzoneIRTLayers.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/StackedZonesWithInterzoneIRTLayers.idf"
+    },
+    {
+      "actual_sha256": "5c3c3a950a820416be539ea71a2da06165bb5ee43978af90c9b062a100c65c83",
+      "copied_relative_path": "idf/complex/StormWindow.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/StormWindow.idf"
+    },
+    {
+      "actual_sha256": "7d68c2ce9f9cfd3377ea545a5ddce95cc75fa02bad7180e0ff1135bcb44e4261",
+      "copied_relative_path": "idf/geometry_references/SurfacePropTest_SurfLWR.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/SurfacePropTest_SurfLWR.idf"
+    },
+    {
+      "actual_sha256": "8b8d804410018e41e386901d31f08f94b87daec7e603e52ea09fbc7177d55da9",
+      "copied_relative_path": "idf/complex/SurfaceTest.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/SurfaceTest.idf"
+    },
+    {
+      "actual_sha256": "100fa43b5a0b14fccb2677ff26dc00a51de9403102906dc8b6364fe3fc838891",
+      "copied_relative_path": "idf/geometry_references/UserDefinedRoomAirPatterns.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/UserDefinedRoomAirPatterns.idf"
+    },
+    {
+      "actual_sha256": "0d13404d099cf2e2988b419127b304235b80ae7b270140bb0e91c0208858c4dd",
+      "copied_relative_path": "idf/complex/UserInputViewFactorFile-LshapedZone.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/UserInputViewFactorFile-LshapedZone.idf"
+    },
+    {
+      "actual_sha256": "3cd760aeed87e4bbff643f041fdc40abbe2cb9597f5565ebe8f9faa477443bc8",
+      "copied_relative_path": "idf/simple/VaryingLocationAndOrientation.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/VaryingLocationAndOrientation.idf"
+    },
+    {
+      "actual_sha256": "ed4a62c33d193f592a0def33e3b0e380e6e14cd44175d4d38532e3e7f4612aec",
+      "copied_relative_path": "idf/complex/WindowTestsSimple.idf",
+      "passed": true,
+      "source_relative_path": "ExampleFiles/WindowTestsSimple.idf"
+    }
+  ],
+  "simulation_results": [
+    {
+      "duration_seconds": 0.261,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_simple",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/1ZoneUncontrolled.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nWarming up {17}\nWarming up {18}\nWarming up {19}\nWarming up {20}\nWarming up {21}\nWarming up {22}\nStarting Simulation at 12/21 for DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nStarting Simulation at 07/21 for DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB\nWriting tabular output file results using comma format.\nWriting tabular output file results using tab format.\nWriting tabular output file results using text format.\nWriting tabular output file results using HTML format.\nWriting tabular output file results using XML format.\nEnergyPlus Run Time=00hr 00min  0.10sec\n"
+    },
+    {
+      "duration_seconds": 0.285,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_simple",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING .4% CONDITIONS DB=>MWB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99.6% CONDITIONS\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.11sec\n"
+    },
+    {
+      "duration_seconds": 0.332,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_simple",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/EquivalentLayerWindow.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "tical Properties\nInitializing Solar Calculations\nAllocate Solar Module Arrays\nInitializing Zone and Enclosure Report Variables\nInitializing Surface (Shading) Report Variables\nComputing Interior Solar Absorption Factors\nDetermining Shadowing Combinations\nComputing Window Shade Absorption Factors\nProceeding with Initializing Solar Calculations\nInitializing Surfaces\nInitializing Outdoor environment for Surfaces\nSetting up Surface Reporting Variables\nInitializing Temperature and Flux Histories\nInitializing Window Shading\nComputing Interior Absorption Factors\nComputing Interior Diffuse Solar Absorption Factors\nInitializing Solar Heat Gains\nInitializing Internal Heat Gains\nInitializing Interior Solar Distribution\nInitializing Interior Convection Coefficients\nGathering Information for Predefined Reporting\nCompleted Initializing Surface Heat Balance\nCalculate Outside Surface Heat Balance\nCalculate Inside Surface Heat Balance\nCalculate Air Heat Balance\nInitializing HVAC\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nPerforming Zone Sizing Simulation\n...for Sizing Period: #1 ATLANTA HARTSFIELD INTL AP ANN HTG 99.6% CONDNS DB\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nPerforming Zone Sizing Simulation\n...for Sizing Period: #2 ATLANTA HARTSFIELD INTL AP ANN CLG .4% CONDNS DB=>MWB\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for ATLANTA HARTSFIELD INTL AP ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for ATLANTA HARTSFIELD INTL AP ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.17sec\n"
+    },
+    {
+      "duration_seconds": 0.321,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_complex",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99% CONDITIONS\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING 1% CONDITIONS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.13sec\n"
+    },
+    {
+      "duration_seconds": 0.26,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_complex",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for DENVER STAPLETON INTL ARPT ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for DENVER STAPLETON INTL ARPT ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using tab format.\nEnergyPlus Run Time=00hr 00min  0.10sec\n"
+    },
+    {
+      "duration_seconds": 0.446,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_complex",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/GeometryTest.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=01/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for COLORADO_SPRGS ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=07/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.26sec\n"
+    },
+    {
+      "duration_seconds": 0.49,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_complex",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/SolarShadingTest.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for PHOENIX ANN HTG 99.6% CONDNS DB WITH SUN\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for PHOENIX ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.26sec\n"
+    },
+    {
+      "duration_seconds": 0.332,
+      "error_file_exists": true,
+      "fatal_count": 0,
+      "passed": true,
+      "return_code": 0,
+      "selected_role": "seed_complex",
+      "severe_count": 0,
+      "source_relative_path": "ExampleFiles/StackedZonesWithInterzoneIRTLayers.idf",
+      "stderr_tail": "EnergyPlus Completed Successfully.\n",
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHAMPAIGN_URBANA ANN HTG WIND 99% CONDNS WS=>MCDB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHAMPAIGN_URBANA ANN CLG .4% CONDNS DB=>MWB\nEnergyPlus Run Time=00hr 00min  0.13sec\n"
+    }
+  ],
+  "summary": {
+    "conversion_passed": 32,
+    "conversion_total": 32,
+    "hash_passed": 68,
+    "hash_total": 68,
+    "passed": true,
+    "seed_count": 32,
+    "selected_idf_count": 68,
+    "simulation_passed": 8,
+    "simulation_total": 8
+  }
+}

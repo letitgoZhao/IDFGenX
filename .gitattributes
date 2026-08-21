@@ -1,0 +1,3 @@
+# EnergyPlus 官方快照必须逐字节保真，禁止 Git 自动转换换行符。
+data/official_idf_v23_1/idf/** -text
+data/official_idf_v23_1/LICENSE.txt -text

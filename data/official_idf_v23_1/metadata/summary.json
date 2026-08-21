@@ -1,0 +1,26 @@
+{
+  "dataset_records": 47,
+  "energyplus_version": "23.1",
+  "example_records": 731,
+  "rejection_reasons": {
+    "external_dependency": 14,
+    "missing_buildingsurface_detailed": 82,
+    "missing_zone": 77,
+    "semantic_duplicate": 3,
+    "template_not_allowlisted": 36,
+    "unsupported_feature": 116,
+    "unsupported_hvac": 629
+  },
+  "schema_version": "energyplus-official-corpus-1.0",
+  "selected_bytes": 16694465,
+  "selected_idf_count": 68,
+  "selected_roles": {
+    "not_selected": 710,
+    "reference_geometry": 25,
+    "seed_complex": 20,
+    "seed_simple": 12,
+    "template": 11
+  },
+  "total_records": 778,
+  "training_eligible_before_dedup": 75
+}

@@ -61,9 +61,9 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 
 | ID | 任务 | 依赖 | 主要出口 | 状态 |
 | --- | --- | --- | --- | --- |
-| IDFGX-M1-001 | 扫描 EnergyPlus v23.1 安装和 ExampleFiles | M0-004 | catalogs manifest/parquet | ready |
-| IDFGX-M1-002 | 分类官方 IDF 对象、几何、HVAC 和可复用角色 | M1-001 | 可检索 catalog | proposed |
-| IDFGX-M1-003 | 人工审核 20–30 个种子、模板和 allowlist | M1-002 | seeds/templates/allowlist | proposed |
+| IDFGX-M1-001 | 扫描 EnergyPlus v23.1 安装并建立一次性官方语料快照 | SETUP-002 | 68 个精选 IDF、778 条 inventory、manifest 和许可证 | done |
+| IDFGX-M1-002 | 分类官方 IDF 对象、几何、HVAC 和可复用角色 | M1-001 | 778 条可检索 inventory | done |
+| IDFGX-M1-003 | 人工审核核心种子、几何参考、模板和 allowlist | M1-002 | 12/20/25/11 精选名单 | done |
 | IDFGX-M1-004 | 冻结 S1–S5/C1–C5 场景桶和约束 | M0-002 | data config v0.1 | ready |
 | IDFGX-M1-005 | 实现离散分层与 LHS/Sobol 连续采样 | M1-004/M0-003 | deterministic sampler | proposed |
 | IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | ready |

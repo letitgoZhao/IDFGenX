@@ -4,11 +4,13 @@
 
 ## 当前阶段
 
-Phase 0 工程基线和本地环境已经完成。下一步进入 `IDFGX-X-001`、`IDFGX-M0-001` 和 `IDFGX-M1-006`：先建立核心包，再冻结 ScenarioSpecDraft/ResolvedScenarioSpec 与 DisclosurePlan，为 20 个 Golden 标定样本建立稳定格式。
+Phase 0 工程基线、本地环境和 EnergyPlus v23.1 官方语料快照已经完成。下一步进入核心包、ScenarioSpec 与 Compiler 最小闭环，为自动化标定提供唯一确定性标签来源。
 
 ## 活动任务
 
-当前没有 `in_progress` 任务。下一任务应从 `IDFGX-X-001` 开始；在其骨架稳定后实施 ScenarioSpec 与 Golden 标定格式。
+| 任务 | 状态 | 当前工作 | 下一出口 |
+| --- | --- | --- | --- |
+| 无 | idle | M1-001 已完成 | 从 `IDFGX-X-001`/`IDFGX-M0-001` 开始 |
 
 ## 下一批 Ready
 
@@ -17,7 +19,6 @@ Phase 0 工程基线和本地环境已经完成。下一步进入 `IDFGX-X-001`�
 | IDFGX-X-001 | 建立根目录 `idfgenx` 包与配置/错误骨架 | SETUP-001 完成 |
 | IDFGX-M0-001 | ScenarioSpecDraft v0.1 | X-001 完成 |
 | IDFGX-M0-002 | ResolvedScenarioSpec v0.1 | M0-001 完成 |
-| IDFGX-M1-001 | 扫描 EnergyPlus v23.1 官方资产 | M0-004 工具链完成 |
 | IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
 | IDFGX-M1-006 | DisclosurePlan | M0-001/002 完成 |
 
@@ -34,6 +35,7 @@ Phase 0 工程基线和本地环境已经完成。下一步进入 `IDFGX-X-001`�
 
 ## 最近完成
 
+- `IDFGX-M1-001`：全量扫描 778 个官方 IDF，冻结 68 个精选文件；68/68 哈希、32/32 转换和 8/8 设计日仿真通过；
 - `IDFGX-SETUP-002`：配置 uv Python 3.11.15、本地 EnergyPlus v23.1，并通过转换和设计日仿真 smoke；
 - `IDFGX-SETUP-001`：建立 Git 代码基线、AI 总计划、任务/报告/ADR 工作流和项目规则；
 - `c896d9b`：提交现有仿真与三维可视化代码基线并推送 `origin/main`；
