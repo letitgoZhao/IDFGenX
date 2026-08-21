@@ -4,11 +4,11 @@
 
 ## 当前阶段
 
-Phase 0 工程基线已经完成。下一阶段进入 `IDFGX-X-001`，建立根目录 `idfgenx` 包、统一配置和错误骨架；随后实施 ScenarioSpec 与 Compiler。
+Phase 0 工程基线和本地环境已经完成。下一步进入 `IDFGX-X-001`、`IDFGX-M0-001` 和 `IDFGX-M1-006`：先建立核心包，再冻结 ScenarioSpecDraft/ResolvedScenarioSpec 与 DisclosurePlan，为 20 个 Golden 标定样本建立稳定格式。
 
 ## 活动任务
 
-当前没有 `in_progress` 任务。开始编码前，应先从 Ready 列表选择任务并创建对应任务文件。
+当前没有 `in_progress` 任务。下一任务应从 `IDFGX-X-001` 开始；在其骨架稳定后实施 ScenarioSpec 与 Golden 标定格式。
 
 ## 下一批 Ready
 
@@ -34,6 +34,7 @@ Phase 0 工程基线已经完成。下一阶段进入 `IDFGX-X-001`，建立根�
 
 ## 最近完成
 
+- `IDFGX-SETUP-002`：配置 uv Python 3.11.15、本地 EnergyPlus v23.1，并通过转换和设计日仿真 smoke；
 - `IDFGX-SETUP-001`：建立 Git 代码基线、AI 总计划、任务/报告/ADR 工作流和项目规则；
 - `c896d9b`：提交现有仿真与三维可视化代码基线并推送 `origin/main`；
 - `2554e75`：新增根目录 AI 开发规则，并恢复原有 `.gitignore`；
