@@ -12,6 +12,8 @@ dist/
 build/
 .venv/
 venv/
+node_modules/
+web/dist/
 
 # ------------------ download models ------------------- # 
 models/
@@ -19,6 +21,9 @@ models/
 
 # ------------------ training outputs ------------------ # 
 outputs/
+data/
+artifacts/
+runtime/
 *.ckpt
 *.pt
 *.pth
@@ -35,3 +40,6 @@ outputs/
 repo/
 docs/notes/
 docs/papers/
+
+# Local duplicate created during repository setup.
+.gitignore copy
