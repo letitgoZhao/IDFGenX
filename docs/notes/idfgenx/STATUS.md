@@ -1,5 +1,7 @@
 # IDFGenX AI 开发当前状态
 
+> 2026-08-25：`IDFGX-M0-016` 已完成。ADR-0001 冻结生产 Spec-LoRA 与 IDF 工件隔离；single/perimeter_core 的 epJSON→IDF→epJSON 语义 round-trip、metamorphic 与 mutation 稳定性测试均已通过。下一项为 M0-017 跨平台一致性验证。
+
 > 2026-08-25：`IDFGX-M0-015` 已完成。Compiler Golden 已扩展至 100 项（single 50、perimeter_core 50），100/100 通过真实 EnergyPlus v23.1 设计日 V0–V6 验证；下一项为 M0-016 稳定性测试。
 
 > 2026-08-25：`IDFGX-M0-013/014` 已完成。独立 V0–V6 Validator、20 个 MVP Golden 与 EnergyPlus v23.1 设计日门禁均已验证；全量 76/76 测试通过。后续进入 M0-015（100 Golden 扩展）。

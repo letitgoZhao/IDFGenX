@@ -1,5 +1,7 @@
 # IDFGenX AI 实施总计划
 
+> 2026-08-25 更新：`IDFGX-M0-016` 已完成；生产 Spec-LoRA 仅学习 Prompt→ScenarioSpecDraft，IDF/epJSON 仅为隔离的验证工件。M0 下一项为 `IDFGX-M0-017`（Windows/Linux 一致性验证）。
+
 > 2026-08-25 更新：`IDFGX-M0-015` 已完成，100 个 Compiler Golden 全部通过；M0 下一项为 `IDFGX-M0-016`（Round-trip、metamorphic 与 mutation 测试）。
 
 > 2026-08-25 更新：`IDFGX-M0-013` 与 `IDFGX-M0-014` 已完成；M0 下一项为 `IDFGX-M0-015`（100 Golden）。
