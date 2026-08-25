@@ -36,8 +36,8 @@ M0 共享核心
 | ID | 任务 | 依赖 | 主要出口 | 状态 |
 | --- | --- | --- | --- | --- |
 | IDFGX-M0-001 | 冻结 ScenarioSpecDraft v0.1 字段和状态语义 | X-001 | Pydantic model、JSON schema、样例 | done |
-| IDFGX-M0-002 | 定义 ResolvedScenarioSpec v0.1 与能力边界 | M0-001 | 完整 Compiler 输入协议 | ready |
-| IDFGX-M0-003 | 实现 Resolver：单位、默认值、派生值和错误 | M0-002 | Resolver、unit tests | proposed |
+| IDFGX-M0-002 | 定义 ResolvedScenarioSpec v0.1 与能力边界 | M0-001 | 完整 Compiler 输入协议 | done |
+| IDFGX-M0-003 | 实现 Resolver：单位、默认值、派生值和错误 | M0-002 | Resolver、unit tests | in_progress |
 | IDFGX-M0-004 | 封装 EnergyPlus v23.1 路径、版本和外部进程 | X-001 | Toolchain adapter、健康检查 | proposed |
 | IDFGX-M0-005 | 实现稳定命名器和对象依赖图 | M0-002 | naming/reference graph | proposed |
 | IDFGX-M0-006 | 实现矩形单层建筑几何 Compiler | M0-003/005 | canonical epJSON | proposed |

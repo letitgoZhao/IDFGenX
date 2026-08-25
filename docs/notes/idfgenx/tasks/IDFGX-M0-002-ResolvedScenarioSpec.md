@@ -2,7 +2,7 @@
 task_id: IDFGX-M0-002
 title: 定义 ResolvedScenarioSpec v0.1 与能力边界
 module: M0
-status: in_progress
+status: done
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -38,7 +38,18 @@ git diff --check
 
 ## 完成标准
 
-- [ ] ResolvedSpec 仅含规范化 SI 值；
-- [ ] 支持域和拒绝边界能由模型验证；
-- [ ] 相关测试先 RED 再 GREEN；
-- [ ] 报告与 `STATUS.md` 已更新。
+- [x] ResolvedSpec 仅含规范化 SI 值；
+- [x] 支持域和拒绝边界能由模型验证；
+- [x] 相关测试先 RED 再 GREEN；
+- [x] 报告与 `STATUS.md` 已更新。
+
+## 执行记录
+
+- 2026-08-25：3 个契约测试先因模块缺失 RED，后转 GREEN；测试夹具中的重复
+  关键字参数会在 Pydantic 前触发 Python `TypeError`，已经根因确认后改为字典覆盖。
+  全量 34 项单测、compileall、锁文件与 diff 检查通过。
+
+## 结果
+
+- 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-M0-002-ResolvedScenarioSpec.md`
+- Commit：`45748a7`
