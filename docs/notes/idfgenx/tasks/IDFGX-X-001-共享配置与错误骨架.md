@@ -2,7 +2,7 @@
 task_id: IDFGX-X-001
 title: 建立共享配置与错误骨架
 module: X
-status: in_progress
+status: done
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -57,13 +57,13 @@ expected_report: docs/notes/idfgenx/reports/2026-08-25-IDFGX-X-001-共享配置�
 
 ## 7. 详细执行步骤
 
-- [ ] 1. 先为配置加载和错误表达编写最小失败测试；
-- [ ] 2. 运行局部测试并确认因接口不存在而失败；
-- [ ] 3. 实现最小 `config.py` 和 `errors.py`；
-- [ ] 4. 固定 `pyproject.toml` Python 3.11 约束并同步锁文件；
-- [ ] 5. 运行局部测试、现有全量单测和 Python 编译；
-- [ ] 6. 检查公共 docstring、类型、diff 和敏感文件；
-- [ ] 7. 输出执行报告并更新任务与 `STATUS.md`。
+- [x] 1. 先为配置加载和错误表达编写最小失败测试；
+- [x] 2. 运行局部测试并确认因接口不存在而失败；
+- [x] 3. 实现最小 `config.py` 和 `errors.py`；
+- [x] 4. 固定 `pyproject.toml` Python 3.11 约束并同步锁文件；
+- [x] 5. 运行局部测试、现有全量单测和 Python 编译；
+- [x] 6. 检查公共 docstring、类型、diff 和敏感文件；
+- [x] 7. 输出执行报告并更新任务与 `STATUS.md`。
 
 ## 8. 数据与接口变更
 
@@ -89,19 +89,21 @@ git diff --check
 
 ## 11. 完成标准
 
-- [ ] 配置和错误公共接口具有中文 Google 风格 docstring 与完整类型；
-- [ ] 配置只认项目规定的两个环境变量且无导入副作用；
-- [ ] EnergyPlus 非 `23.1` 配置产生稳定配置错误；
-- [ ] Python 项目约束固定为 3.11 且锁文件一致；
-- [ ] 新增测试和现有测试全部通过；
-- [ ] 报告已生成，任务与 `STATUS.md` 已更新。
+- [x] 配置和错误公共接口具有中文 Google 风格 docstring 与完整类型；
+- [x] 配置只认项目规定的两个环境变量且无导入副作用；
+- [x] EnergyPlus 非 `23.1` 配置产生稳定配置错误；
+- [x] Python 项目约束固定为 3.11 且锁文件一致；
+- [x] 新增测试和现有测试全部通过；
+- [x] 报告已生成，任务与 `STATUS.md` 已更新。
 
 ## 12. 执行记录
 
 - 2026-08-25：从已批准设计 commit `5b7c67c` 开始实施，使用隔离分支
   `feature/idfgx-x001-m1018`。
+- 2026-08-25：三个 TDD 循环均先得到预期 RED，再实现 GREEN；局部 6 项、
+  全量 21 项单测、compileall 与 uv 锁文件检查通过。
 
 ## 13. 结果
 
 - 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-X-001-共享配置与错误骨架.md`
-- Commit/PR：待完成后填写
+- Commit：`08b8b1c`、`dacd157`、`b6f35d6`

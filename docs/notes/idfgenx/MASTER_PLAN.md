@@ -24,7 +24,7 @@ M0 共享核心
 | --- | --- | --- | --- | --- |
 | IDFGX-SETUP-001 | 提交现有仿真/3D 代码，建立 AI 工作流和项目规则 | 无 | Git 基线、`docs/notes/idfgenx/`、`AGENTS.md` | done |
 | IDFGX-SETUP-002 | 配置 Windows uv/Python 3.11 与 EnergyPlus v23.1 本地环境 | SETUP-001 | `.venv`、`.env.example`、工具链 smoke 报告 | done |
-| IDFGX-X-001 | 建立根目录 `idfgenx` 包与配置/错误骨架 | SETUP-001 | 包结构、config、errors、测试入口 | ready |
+| IDFGX-X-001 | 建立根目录 `idfgenx` 包与配置/错误骨架 | SETUP-001 | 包结构、config、errors、测试入口 | done |
 | IDFGX-X-002 | 配置 Ruff、类型检查、pytest 和前端检查 | X-001 | 质量配置与基础 CI 命令 | proposed |
 | IDFGX-X-003 | 建立测试目录和 Golden fixture 约定 | X-001 | unit/integration/golden/e2e 骨架 | proposed |
 | IDFGX-X-004 | 将现有 server 业务逐步迁入 `idfgenx/simulation` | X-003 | 薄 route、兼容 re-export、回归测试 | proposed |

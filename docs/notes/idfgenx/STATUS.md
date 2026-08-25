@@ -4,19 +4,18 @@
 
 ## 当前阶段
 
-Phase 0 工程基线、本地环境和 EnergyPlus v23.1 官方语料快照已经完成。下一步进入核心包、ScenarioSpec 与 Compiler 最小闭环，为自动化标定提供唯一确定性标签来源。
+Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v23.1 官方语料快照已经完成。下一步先完成精选官方 IDF 目录迁移，再进入 ScenarioSpec 与 Compiler 最小闭环，为自动化标定提供唯一确定性标签来源。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | idle | M1-001 已完成 | 从 `IDFGX-X-001`/`IDFGX-M0-001` 开始 |
+| 无 | idle | X-001 已完成 | 开始 `IDFGX-M1-018` |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-X-001 | 建立根目录 `idfgenx` 包与配置/错误骨架 | SETUP-001 完成 |
 | IDFGX-M0-001 | ScenarioSpecDraft v0.1 | X-001 完成 |
 | IDFGX-M0-002 | ResolvedScenarioSpec v0.1 | M0-001 完成 |
 | IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
@@ -36,6 +35,7 @@ Phase 0 工程基线、本地环境和 EnergyPlus v23.1 官方语料快照已经
 
 ## 最近完成
 
+- `IDFGX-X-001`：新增统一配置、错误码和项目异常基类，固定 Python 3.11；新增 6 项测试，全量 21/21 通过；
 - `IDFGX-X-005`：前端 tsconfig 改为自包含配置，移除 `@vue/tsconfig`，类型检查和生产构建通过；
 - `IDFGX-M1-001`：全量扫描 778 个官方 IDF，冻结 68 个精选文件；68/68 哈希、32/32 转换和 8/8 设计日仿真通过；
 - `IDFGX-SETUP-002`：配置 uv Python 3.11.15、本地 EnergyPlus v23.1，并通过转换和设计日仿真 smoke；
