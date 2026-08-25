@@ -10,6 +10,7 @@ from idfgenx.schemas.scenario import (
     TemperatureUnit,
     ZoneLayout,
 )
+from idfgenx.schemas.resolved import ResolvedScenarioSpec
 
 __all__ = [
     "BuildingUse",
@@ -17,6 +18,7 @@ __all__ = [
     "DraftValue",
     "FieldStatus",
     "LengthUnit",
+    "ResolvedScenarioSpec",
     "ScenarioSpecDraft",
     "TemperatureUnit",
     "ZoneLayout",
