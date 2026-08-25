@@ -53,11 +53,11 @@ M0 共享核心
 | IDFGX-M0-010 | 审核并注入材料、构造和日程模板 | M0-004/005 | v23.1 templates | done |
 | IDFGX-M0-011 | 实现内部负荷、温控和 IdealLoads | M0-010 | supported object graph | done |
 | IDFGX-M0-012 | 实现 epJSON 序列化与 IDF 转换 | M0-004/006 | normalized IDF | done |
-| IDFGX-M0-013 | 实现 V0–V6 Validator 和质量报告 | M0-012 | ValidationReport | proposed |
-| IDFGX-M0-014 | 建立 20 个 MVP Golden 并全部通过 | M0-013 | 20 Golden | proposed |
-| IDFGX-M0-015 | 扩展到 100 Golden 和复杂场景 | M0-014 | Compiler v1 候选 | proposed |
-| IDFGX-M0-016 | 建立 Round-trip、metamorphic 和 mutation 测试 | M0-013 | 稳定性证据 | proposed |
-| IDFGX-M0-017 | Windows/Linux 代表样本一致性验证 | M0-015 | 跨平台报告 | proposed |
+| IDFGX-M0-013 | 实现 V0–V6 Validator 和质量报告 | M0-012 | ValidationReport | done |
+| IDFGX-M0-014 | 建立 20 个 MVP Golden 并全部通过 | M0-013 | 20 Golden | done |
+| IDFGX-M0-015 | 扩展到 100 Golden 和复杂场景 | M0-014 | Compiler v1 候选 | done |
+| IDFGX-M0-016 | 建立 Round-trip、metamorphic 和 mutation 测试 | M0-013 | 稳定性证据 | done |
+| IDFGX-M0-017 | Windows/Linux 代表样本一致性验证 | M0-015 | 跨平台报告 | ready |
 
 M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真通过率均为 100%，合法支持域无未处理异常，同输入规范化结果可重复。
 
