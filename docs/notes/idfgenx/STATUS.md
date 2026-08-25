@@ -4,13 +4,13 @@
 
 ## 当前阶段
 
-Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v23.1 精选官方语料已经完成。下一步进入 ScenarioSpec 与 Compiler 最小闭环，为自动化标定提供唯一确定性标签来源。
+Draft → ResolvedScenarioSpec → Resolver → Compiler 最小闭环已经完成。Compiler 从受控 ScenarioSpec 生成 EnergyPlus v23.1 可转换 IDF；Validator 与 Golden 仍是后续独立工作。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| IDFGX-M0-003 | in_progress | Resolver 的单位、默认值、派生值和错误 | 开始 Compiler 基础模块 |
+| 无 | 无 | 本轮目标已在 Compiler 阶段结束 | 后续可独立启动 M0-013 Validator |
 
 ## 下一批 Ready
 
@@ -32,6 +32,8 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 
 ## 最近完成
 
+- `IDFGX-M0-004 至 M0-012`：完成 v23.1 工具链、几何、窗洞、模板、canonical epJSON 与真实 IDF 转换；48/48 测试通过；
+- `IDFGX-M0-003`：完成 Draft 到 SI-only ResolvedScenarioSpec 的确定性 Resolver；单位、默认值、派生值和失败边界均有测试；
 - `IDFGX-M0-001`：冻结 Pydantic ScenarioSpecDraft v0.1，保留原始单位和字段状态；31/31 单测通过；
 - `IDFGX-M0-002`：冻结仅含 SI 值的 ResolvedScenarioSpec v0.1，覆盖矩形、多层、分区与温控边界；34/34 单测通过；
 - `IDFGX-M1-018`：规范目录迁移为 `data/selected_official_idfs`，新增中文 README；68/68 哈希、32/32 转换、8/8 仿真和 27/27 单测通过；

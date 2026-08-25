@@ -37,16 +37,16 @@ M0 共享核心
 | --- | --- | --- | --- | --- |
 | IDFGX-M0-001 | 冻结 ScenarioSpecDraft v0.1 字段和状态语义 | X-001 | Pydantic model、JSON schema、样例 | done |
 | IDFGX-M0-002 | 定义 ResolvedScenarioSpec v0.1 与能力边界 | M0-001 | 完整 Compiler 输入协议 | done |
-| IDFGX-M0-003 | 实现 Resolver：单位、默认值、派生值和错误 | M0-002 | Resolver、unit tests | in_progress |
-| IDFGX-M0-004 | 封装 EnergyPlus v23.1 路径、版本和外部进程 | X-001 | Toolchain adapter、健康检查 | proposed |
-| IDFGX-M0-005 | 实现稳定命名器和对象依赖图 | M0-002 | naming/reference graph | proposed |
-| IDFGX-M0-006 | 实现矩形单层建筑几何 Compiler | M0-003/005 | canonical epJSON | proposed |
-| IDFGX-M0-007 | 实现矩形多层和基础多区分区 | M0-006 | floor/zone geometry | proposed |
-| IDFGX-M0-008 | 实现窗、宿主墙和 WWR 几何 | M0-006 | fenestration compiler | proposed |
-| IDFGX-M0-009 | 实现内墙、楼板、屋面邻接配对 | M0-007 | adjacency compiler | proposed |
-| IDFGX-M0-010 | 审核并注入材料、构造和日程模板 | M0-004/005 | v23.1 templates | proposed |
-| IDFGX-M0-011 | 实现内部负荷、温控和 IdealLoads | M0-010 | supported object graph | proposed |
-| IDFGX-M0-012 | 实现 epJSON 序列化与 IDF 转换 | M0-004/006 | normalized IDF | proposed |
+| IDFGX-M0-003 | 实现 Resolver：单位、默认值、派生值和错误 | M0-002 | Resolver、unit tests | done |
+| IDFGX-M0-004 | 封装 EnergyPlus v23.1 路径、版本和外部进程 | X-001 | Toolchain adapter、健康检查 | done |
+| IDFGX-M0-005 | 实现稳定命名器和对象依赖图 | M0-002 | naming/reference graph | done |
+| IDFGX-M0-006 | 实现矩形单层建筑几何 Compiler | M0-003/005 | canonical epJSON | done |
+| IDFGX-M0-007 | 实现矩形多层和基础多区分区 | M0-006 | floor/zone geometry | done |
+| IDFGX-M0-008 | 实现窗、宿主墙和 WWR 几何 | M0-006 | fenestration compiler | done |
+| IDFGX-M0-009 | 实现内墙、楼板、屋面邻接配对 | M0-007 | adjacency compiler | done |
+| IDFGX-M0-010 | 审核并注入材料、构造和日程模板 | M0-004/005 | v23.1 templates | done |
+| IDFGX-M0-011 | 实现内部负荷、温控和 IdealLoads | M0-010 | supported object graph | done |
+| IDFGX-M0-012 | 实现 epJSON 序列化与 IDF 转换 | M0-004/006 | normalized IDF | done |
 | IDFGX-M0-013 | 实现 V0–V6 Validator 和质量报告 | M0-012 | ValidationReport | proposed |
 | IDFGX-M0-014 | 建立 20 个 MVP Golden 并全部通过 | M0-013 | 20 Golden | proposed |
 | IDFGX-M0-015 | 扩展到 100 Golden 和复杂场景 | M0-014 | Compiler v1 候选 | proposed |

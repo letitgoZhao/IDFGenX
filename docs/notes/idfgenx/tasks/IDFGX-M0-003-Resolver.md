@@ -2,7 +2,7 @@
 task_id: IDFGX-M0-003
 title: 实现 Resolver 的单位、默认值、派生值和错误
 module: M0
-status: in_progress
+status: done
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -36,7 +36,12 @@ git diff --check
 
 ## 完成标准
 
-- [ ] 英制/华氏输入规范化为 SI；
-- [ ] 默认策略、派生值与失败边界均有测试；
-- [ ] 相关测试先 RED 再 GREEN；
-- [ ] 报告与 `STATUS.md` 已更新。
+- [x] 英制/华氏输入规范化为 SI；
+- [x] 默认策略、派生值与失败边界均有测试；
+- [x] 相关测试先 RED 再 GREEN；
+- [x] 报告与 `STATUS.md` 已更新。
+
+## 结果
+
+- 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-M0-003-Resolver.md`
+- Commit：`b12cf01`
