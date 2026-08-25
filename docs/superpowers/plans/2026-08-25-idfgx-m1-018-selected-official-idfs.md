@@ -31,7 +31,7 @@
 
 **Interfaces:**
 - Consumes: `load_selected_manifest()`、`verify_copy_hashes()`、旧快照目录、68 条 manifest 与副本 SHA-256。
-- Produces: 唯一规范目录、人类可读目录说明，以及 README 文案边界和 68 个副本完整性的回归门禁。
+- Produces: 唯一规范目录、人类可读目录说明，以及 68 个副本完整性的回归门禁。
 
 - [ ] **Step 1: 将任务状态改为进行中**
 
@@ -66,23 +66,6 @@ class SelectedOfficialIdfsLayoutTests(unittest.TestCase):
     def test_only_canonical_corpus_directory_exists(self) -> None:
         self.assertTrue(CORPUS_ROOT.is_dir())
         self.assertFalse(OLD_CORPUS_ROOT.exists())
-
-    def test_readme_documents_version_roles_and_training_boundary(self) -> None:
-        readme = (CORPUS_ROOT / "README.md").read_text(encoding="utf-8")
-
-        for expected in (
-            "EnergyPlus v23.1",
-            "idf/simple/",
-            "idf/complex/",
-            "idf/geometry_references/",
-            "idf/templates/",
-            "metadata/",
-            "不作为正向 SFT 标签",
-            "ScenarioSpec",
-            "Compiler",
-        ):
-            with self.subTest(expected=expected):
-                self.assertIn(expected, readme)
 
     def test_manifest_resolves_all_68_unchanged_copies(self) -> None:
         records = load_selected_manifest(CORPUS_ROOT)
@@ -160,7 +143,7 @@ Expected: 源和目标均在 `D:\GithubProject\IDFGenX\data` 下；迁移前后�
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_selected_official_idfs_layout -v`
 
-Expected: 3 tests，全部 PASS。
+Expected: 2 tests，全部 PASS；README 属于人类说明文档，按批准设计审查内容而不固定文案测试。
 
 - [ ] **Step 7: 提交绿色目录迁移**
 

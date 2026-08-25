@@ -2,7 +2,7 @@
 task_id: IDFGX-M1-018
 title: 迁移精选官方 IDF 目录并补充中文说明
 module: M1
-status: ready
+status: in_progress
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -111,7 +111,8 @@ git diff --check
 
 ## 12. 执行记录
 
-等待书面设计确认后实施。
+- 2026-08-25：从 `ADR-0001` 和已批准设计 commit `5b7c67c` 开始实施；
+  自动测试保护规范路径与快照完整性，README 人类文案采用交付审查，不写固定文本断言。
 
 ## 13. 结果
 
