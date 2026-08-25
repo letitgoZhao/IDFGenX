@@ -20,15 +20,15 @@ GOLDEN_ROOT = Path(__file__).parents[1] / "golden" / "compiler"
 class CompilerGoldenTests(unittest.TestCase):
     """Golden 必须通过真实 v23.1 设计日和所有独立质量阶段。"""
 
-    def test_discovers_twenty_balanced_golden_fixtures(self) -> None:
-        """MVP Golden 固定为 10 个 single 与 10 个 perimeter_core 场景。"""
+    def test_discovers_one_hundred_balanced_golden_fixtures(self) -> None:
+        """Golden 固定为 50 个 single 与 50 个 perimeter_core 场景。"""
 
         fixtures = _fixture_directories()
 
-        self.assertEqual(len(fixtures), 20)
+        self.assertEqual(len(fixtures), 100)
         layouts = [_load_spec(path).zone_layout.value for path in fixtures]
-        self.assertEqual(layouts.count("single"), 10)
-        self.assertEqual(layouts.count("perimeter_core"), 10)
+        self.assertEqual(layouts.count("single"), 50)
+        self.assertEqual(layouts.count("perimeter_core"), 50)
 
     def test_every_golden_passes_v0_to_v6_and_matches_expected_summary(self) -> None:
         """每项 Golden 必须保持可审阅摘要、epJSON 哈希与 V0–V6 全绿。"""

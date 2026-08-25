@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1",
+  "compiler_version": "0.1",
+  "building_name": "core-19-classroom-3f",
+  "length_m": 44,
+  "width_m": 18,
+  "floor_to_floor_height_m": 3.5,
+  "stories": 3,
+  "zone_layout": "perimeter_core",
+  "perimeter_depth_m": 2,
+  "window_to_wall_ratio": 0.6,
+  "heating_setpoint_c": 20,
+  "cooling_setpoint_c": 26,
+  "building_use": "classroom"
+}

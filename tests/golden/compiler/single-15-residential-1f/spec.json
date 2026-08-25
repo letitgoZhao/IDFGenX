@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1",
+  "compiler_version": "0.1",
+  "building_name": "single-15-residential-1f",
+  "length_m": 22,
+  "width_m": 9,
+  "floor_to_floor_height_m": 3,
+  "stories": 1,
+  "zone_layout": "single",
+  "perimeter_depth_m": null,
+  "window_to_wall_ratio": 0.4,
+  "heating_setpoint_c": 20,
+  "cooling_setpoint_c": 26,
+  "building_use": "residential"
+}
