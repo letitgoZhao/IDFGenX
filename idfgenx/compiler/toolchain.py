@@ -15,6 +15,7 @@ class EnergyPlusToolchain:
 
     root: Path
     convert_input_format: Path
+    energyplus: Path
     idd_path: Path
     epjson_schema_path: Path
 
@@ -37,6 +38,7 @@ class EnergyPlusToolchain:
         root = config.energyplus_path
         required = {
             "convert_input_format": root / "ConvertInputFormat.exe",
+            "energyplus": root / "energyplus.exe",
             "idd_path": root / "Energy+.idd",
             "epjson_schema_path": root / "Energy+.schema.epJSON",
         }

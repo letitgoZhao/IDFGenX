@@ -36,6 +36,12 @@ class TemplateTests(unittest.TestCase):
         self.assertEqual(len(document["ZoneControl:Thermostat"]), 1)
         self.assertEqual(len(document["People"]), 1)
         self.assertEqual(document["Schedule:Compact"]["Always On"]["data"][0], {"field": "Through: 12/31"})
+        self.assertEqual(len(document["SizingPeriod:DesignDay"]), 2)
+        self.assertEqual(document["Site:Location"]["Validation Site"]["latitude"], 39.9)
+        self.assertEqual(
+            document["SizingPeriod:DesignDay"]["Summer Design Day"]["day_type"],
+            "SummerDesignDay",
+        )
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ from typing import Any
 from idfgenx.validation.models import Finding, StageReport, ValidationStatus
 
 
-SUPPORTED_OBJECTS = frozenset({"Version", "Building", "GlobalGeometryRules", "Zone", "BuildingSurface:Detailed", "FenestrationSurface:Detailed", "Material", "WindowMaterial:SimpleGlazingSystem", "Construction", "ScheduleTypeLimits", "Schedule:Compact", "People", "Lights", "ElectricEquipment", "ThermostatSetpoint:DualSetpoint", "ZoneControl:Thermostat", "ZoneHVAC:IdealLoadsAirSystem", "ZoneHVAC:EquipmentList", "ZoneHVAC:EquipmentConnections"})
+SUPPORTED_OBJECTS = frozenset({"Version", "Building", "GlobalGeometryRules", "Zone", "BuildingSurface:Detailed", "FenestrationSurface:Detailed", "Site:Location", "Material", "WindowMaterial:SimpleGlazingSystem", "Construction", "ScheduleTypeLimits", "Schedule:Compact", "SizingPeriod:DesignDay", "People", "Lights", "ElectricEquipment", "ThermostatSetpoint:DualSetpoint", "ZoneControl:Thermostat", "ZoneHVAC:IdealLoadsAirSystem", "ZoneHVAC:EquipmentList", "ZoneHVAC:EquipmentConnections"})
 
 
 def validate_objects(document: dict[str, Any]) -> StageReport:

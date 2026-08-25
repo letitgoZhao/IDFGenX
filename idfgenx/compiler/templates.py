@@ -23,6 +23,14 @@ def _base_templates(spec: ResolvedScenarioSpec) -> dict[str, Any]:
     """创建所有 Zone 共用的最小可引用材料、构造和恒定日程。"""
 
     return {
+        "Site:Location": {
+            "Validation Site": {
+                "latitude": 39.9,
+                "longitude": 116.4,
+                "time_zone": 8.0,
+                "elevation": 44.0,
+            }
+        },
         "Material": {
             "Generic Wall Material": {"roughness": "MediumSmooth", "thickness": 0.2, "conductivity": 0.8, "density": 1800.0, "specific_heat": 900.0},
             "Generic Floor Material": {"roughness": "MediumRough", "thickness": 0.25, "conductivity": 1.4, "density": 2200.0, "specific_heat": 900.0},
@@ -42,6 +50,34 @@ def _base_templates(spec: ResolvedScenarioSpec) -> dict[str, Any]:
             "Cooling Setpoint": _compact_schedule(spec.cooling_setpoint_c),
             "Control Type": _compact_schedule(4.0),
         },
+        "SizingPeriod:DesignDay": {
+            "Summer Design Day": _design_day(7, 21, "SummerDesignDay", 32.0, 10.0, 20.0),
+            "Winter Design Day": _design_day(1, 21, "WinterDesignDay", -5.0, 0.0, -5.0),
+        },
+    }
+
+
+def _design_day(
+    month: int,
+    day_of_month: int,
+    day_type: str,
+    maximum_dry_bulb_temperature: float,
+    daily_dry_bulb_temperature_range: float,
+    wetbulb_or_dewpoint_at_maximum_dry_bulb: float,
+) -> dict[str, float | int | str]:
+    """构造无需天气文件的最小 v23.1 设计日边界条件。"""
+
+    return {
+        "month": month,
+        "day_of_month": day_of_month,
+        "day_type": day_type,
+        "maximum_dry_bulb_temperature": maximum_dry_bulb_temperature,
+        "daily_dry_bulb_temperature_range": daily_dry_bulb_temperature_range,
+        "humidity_condition_type": "WetBulb",
+        "wetbulb_or_dewpoint_at_maximum_dry_bulb": wetbulb_or_dewpoint_at_maximum_dry_bulb,
+        "wind_speed": 3.0,
+        "wind_direction": 0.0,
+        "sky_clearness": 1.0,
     }
 
 

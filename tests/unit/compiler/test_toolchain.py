@@ -14,7 +14,7 @@ from idfgenx.errors import ConfigurationError
 class EnergyPlusToolchainTests(unittest.TestCase):
     """验证工具链只接受完整且固定版本的本地安装目录。"""
 
-    def test_from_config_discovers_v231_cli_idd_and_schema(self) -> None:
+    def test_from_config_discovers_v231_cli_idd_schema_and_simulator(self) -> None:
         """丢失转换程序、IDD 或 epJSON Schema 时必须不能进入 Compiler。"""
 
         toolchain = EnergyPlusToolchain.from_config(
@@ -25,6 +25,7 @@ class EnergyPlusToolchainTests(unittest.TestCase):
         self.assertTrue(toolchain.convert_input_format.is_file())
         self.assertTrue(toolchain.idd_path.is_file())
         self.assertTrue(toolchain.epjson_schema_path.is_file())
+        self.assertTrue(toolchain.energyplus.is_file())
 
     def test_from_config_rejects_incomplete_installation(self) -> None:
         """接受任意目录会让外部进程失败延迟到难以定位的转换阶段。"""
