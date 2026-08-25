@@ -4,6 +4,20 @@
 保留在顶层 :mod:`server` 包中。
 """
 
-__all__ = ["__version__"]
+from idfgenx import config, errors
+from idfgenx.config import IDFGenXConfig, load_config
+from idfgenx.errors import ConfigurationError, ErrorCode, IDFGenXError
+
+
+__all__ = [
+    "ConfigurationError",
+    "ErrorCode",
+    "IDFGenXConfig",
+    "IDFGenXError",
+    "__version__",
+    "config",
+    "errors",
+    "load_config",
+]
 
 __version__ = "0.1.0"

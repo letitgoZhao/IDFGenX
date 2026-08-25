@@ -2,7 +2,7 @@
 name = "energyplus-visualization-demo"
 version = "0.1.0"
 description = "Standalone IDF 3D rendering and EnergyPlus visualization demo"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.11,<3.12"
 dependencies = [
     "eppy==0.5.63",
     "fastapi==0.135.1",
