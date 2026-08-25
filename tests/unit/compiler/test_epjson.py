@@ -1,0 +1,43 @@
+"""canonical epJSON 几何载荷测试。"""
+
+from __future__ import annotations
+
+import unittest
+
+from idfgenx.compiler.epjson import build_epjson, canonical_epjson_bytes
+from idfgenx.schemas.resolved import ResolvedScenarioSpec
+from idfgenx.schemas.scenario import BuildingUse, ZoneLayout
+
+
+class EpJsonTests(unittest.TestCase):
+    """验证对象、引用和 JSON 排序均可重复。"""
+
+    def test_epjson_contains_v231_geometry_and_window_references(self) -> None:
+        """丢失版本、Zone、宿主引用或表面顶点会使转换不可用。"""
+
+        spec = ResolvedScenarioSpec(
+            building_name="Office-EPJSON",
+            length_m=10.0,
+            width_m=8.0,
+            floor_to_floor_height_m=3.0,
+            stories=1,
+            zone_layout=ZoneLayout.SINGLE,
+            window_to_wall_ratio=0.4,
+            heating_setpoint_c=20.0,
+            cooling_setpoint_c=26.0,
+            building_use=BuildingUse.OFFICE,
+        )
+
+        document = build_epjson(spec)
+        payload = canonical_epjson_bytes(document).decode("utf-8")
+
+        self.assertEqual(document["Version"]["Version 1"]["version_identifier"], "23.1")
+        self.assertEqual(len(document["Zone"]), 1)
+        self.assertEqual(len(document["BuildingSurface:Detailed"]), 6)
+        self.assertEqual(len(document["FenestrationSurface:Detailed"]), 4)
+        self.assertTrue(all("building_surface_name" in item for item in document["FenestrationSurface:Detailed"].values()))
+        self.assertLess(payload.index('"Building"'), payload.index('"Zone"'))
+
+
+if __name__ == "__main__":
+    unittest.main()
