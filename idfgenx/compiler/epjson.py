@@ -69,6 +69,8 @@ def _surface_payload(surface: Surface) -> dict[str, Any]:
         "Floor": "Floor Construction",
         "Roof": "Roof Construction",
     }[surface.surface_type]
+    if surface.outside_boundary_condition == "Surface":
+        construction = "Internal Construction"
     payload: dict[str, Any] = {
         "surface_type": surface.surface_type,
         "construction_name": construction,

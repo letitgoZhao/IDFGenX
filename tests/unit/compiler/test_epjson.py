@@ -48,6 +48,31 @@ class EpJsonTests(unittest.TestCase):
         self.assertNotIn("vertices", window)
         self.assertLess(payload.index('"Building"'), payload.index('"Zone"'))
 
+    def test_interzone_surfaces_use_a_shared_symmetric_construction(self) -> None:
+        """跨层 Roof/Floor 必须使用同一构造，避免 v23.1 报反向层错误。"""
+
+        spec = ResolvedScenarioSpec(
+            building_name="Office-Interzone",
+            length_m=10.0,
+            width_m=8.0,
+            floor_to_floor_height_m=3.0,
+            stories=2,
+            zone_layout=ZoneLayout.SINGLE,
+            window_to_wall_ratio=0.4,
+            heating_setpoint_c=20.0,
+            cooling_setpoint_c=26.0,
+            building_use=BuildingUse.OFFICE,
+        )
+        document = build_epjson(spec)
+        paired = [
+            surface
+            for surface in document["BuildingSurface:Detailed"].values()
+            if surface["outside_boundary_condition"] == "Surface"
+        ]
+
+        self.assertEqual(len(paired), 2)
+        self.assertTrue(all(surface["construction_name"] == "Internal Construction" for surface in paired))
+
 
 if __name__ == "__main__":
     unittest.main()
