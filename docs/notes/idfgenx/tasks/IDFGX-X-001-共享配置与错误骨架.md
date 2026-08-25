@@ -102,8 +102,11 @@ git diff --check
   `feature/idfgx-x001-m1018`。
 - 2026-08-25：三个 TDD 循环均先得到预期 RED，再实现 GREEN；局部 6 项、
   全量 21 项单测、compileall 与 uv 锁文件检查通过。
+- 2026-08-25：代码审查后补充直接构造版本约束、波浪线路径宿主隔离和嵌套
+  错误上下文防突变回归；3 项测试先 RED 后 GREEN，相关 9 项、全量 27 项
+  单测通过。
 
 ## 13. 结果
 
 - 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-X-001-共享配置与错误骨架.md`
-- Commit：`08b8b1c`、`dacd157`、`b6f35d6`
+- Commit：`08b8b1c`、`dacd157`、`b6f35d6`、`074af00`

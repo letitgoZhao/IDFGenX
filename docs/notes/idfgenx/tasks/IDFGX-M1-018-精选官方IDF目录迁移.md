@@ -117,9 +117,11 @@ git diff --check
   `.gitattributes` 路径会在新位置暂存时规范化 CRLF，增加 Git clean filter
   回归测试并迁移 `-text` 规则后，68/68 新旧 Git blob 完全一致。
 - 2026-08-25：新规范路径的完整门禁通过，结果为 68/68 哈希、32/32 转换、
-  8/8 设计日仿真；全量 24 项单测和 Python 语法编译通过。
+  8/8 设计日仿真；全量 27 项单测和 Python 语法编译通过。
+- 2026-08-25：代码审查后将 Git clean filter 回归从代表文件扩大到全部
+  68 个 IDF 与许可证，共 69 个路径均保持原始字节。
 
 ## 13. 结果
 
 - 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-M1-018-精选官方IDF目录迁移.md`
-- Commit：`9aad1a2`、`3d6c551`、`539d6e6`、`4607bf0`
+- Commit：`9aad1a2`、`3d6c551`、`539d6e6`、`4607bf0`、`074af00`

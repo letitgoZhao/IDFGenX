@@ -34,8 +34,8 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 
 ## 最近完成
 
-- `IDFGX-M1-018`：规范目录迁移为 `data/selected_official_idfs`，新增中文 README；68/68 哈希、32/32 转换、8/8 仿真和 24/24 单测通过；
-- `IDFGX-X-001`：新增统一配置、错误码和项目异常基类，固定 Python 3.11；新增 6 项测试，全量 21/21 通过；
+- `IDFGX-M1-018`：规范目录迁移为 `data/selected_official_idfs`，新增中文 README；68/68 哈希、32/32 转换、8/8 仿真和 27/27 单测通过；
+- `IDFGX-X-001`：新增统一配置、错误码和项目异常基类，固定 Python 3.11；9 项相关测试、全量 27/27 通过；
 - `IDFGX-X-005`：前端 tsconfig 改为自包含配置，移除 `@vue/tsconfig`，类型检查和生产构建通过；
 - `IDFGX-M1-001`：全量扫描 778 个官方 IDF，冻结 68 个精选文件；68/68 哈希、32/32 转换和 8/8 设计日仿真通过；
 - `IDFGX-SETUP-002`：配置 uv Python 3.11.15、本地 EnergyPlus v23.1，并通过转换和设计日仿真 smoke；
