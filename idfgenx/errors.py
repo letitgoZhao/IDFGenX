@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from enum import StrEnum
 from typing import Mapping
 
@@ -45,7 +46,7 @@ class IDFGenXError(RuntimeError):
         super().__init__(message)
         self.code = code
         self.message = message
-        self.context = dict(context or {})
+        self.context = deepcopy(dict(context or {}))
         if cause is not None:
             self.__cause__ = cause
 
@@ -59,7 +60,7 @@ class IDFGenXError(RuntimeError):
         return {
             "code": self.code.value,
             "message": self.message,
-            "context": dict(self.context),
+            "context": deepcopy(self.context),
         }
 
 

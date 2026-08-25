@@ -29,6 +29,18 @@ class IDFGenXConfig:
     energyplus_path: Path | None
     energyplus_version: str = SUPPORTED_ENERGYPLUS_VERSION
 
+    def __post_init__(self) -> None:
+        """拒绝绕过统一加载入口注入不受支持的 EnergyPlus 版本。"""
+
+        if self.energyplus_version != SUPPORTED_ENERGYPLUS_VERSION:
+            raise ConfigurationError(
+                "EnergyPlus 版本不受支持。",
+                context={
+                    "actual": self.energyplus_version,
+                    "expected": SUPPORTED_ENERGYPLUS_VERSION,
+                },
+            )
+
 
 def load_config(environ: Mapping[str, str] | None = None) -> IDFGenXConfig:
     """从规范环境变量加载不可变项目配置。
@@ -52,16 +64,7 @@ def load_config(environ: Mapping[str, str] | None = None) -> IDFGenXConfig:
     raw_version = source.get(
         "ENERGYPLUS_VERSION", SUPPORTED_ENERGYPLUS_VERSION
     ).strip()
-    if raw_version != SUPPORTED_ENERGYPLUS_VERSION:
-        raise ConfigurationError(
-            "EnergyPlus 版本不受支持。",
-            context={
-                "actual": raw_version,
-                "expected": SUPPORTED_ENERGYPLUS_VERSION,
-            },
-        )
-
     return IDFGenXConfig(
-        energyplus_path=Path(raw_path).expanduser() if raw_path else None,
+        energyplus_path=Path(raw_path) if raw_path else None,
         energyplus_version=raw_version,
     )

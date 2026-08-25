@@ -42,6 +42,21 @@ class IDFGenXErrorTests(unittest.TestCase):
 
         self.assertEqual(error.code, ErrorCode.CONFIGURATION_INVALID)
 
+    def test_nested_context_is_isolated_from_external_mutation(self) -> None:
+        """嵌套上下文及序列化结果均不得反向改写异常内部载荷。"""
+
+        source_context = {"fields": {"version": "24.1"}}
+        error = ConfigurationError("版本不受支持", context=source_context)
+
+        source_context["fields"]["version"] = "23.1"
+        first_payload = error.to_dict()
+        first_payload["context"]["fields"]["version"] = "22.2"
+
+        self.assertEqual(
+            error.to_dict()["context"],
+            {"fields": {"version": "24.1"}},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

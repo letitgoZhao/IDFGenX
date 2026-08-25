@@ -37,12 +37,23 @@ class SelectedOfficialIdfsLayoutTests(unittest.TestCase):
         self.assertTrue(all(bool(result["passed"]) for result in hash_results))
 
     def test_git_clean_filter_preserves_snapshot_bytes(self) -> None:
-        """Git 暂存过滤器不得改变官方 IDF 和许可证的原始字节。"""
+        """Git 暂存过滤器不得改变全部官方 IDF 和许可证的原始字节。"""
 
-        for relative_path in (
-            "data/selected_official_idfs/idf/simple/1ZoneUncontrolled.idf",
-            "data/selected_official_idfs/LICENSE.txt",
-        ):
+        records = load_selected_manifest(CORPUS_ROOT)
+        relative_paths = [
+            (CORPUS_ROOT / str(record["copied_relative_path"]))
+            .relative_to(REPOSITORY_ROOT)
+            .as_posix()
+            for record in records
+        ]
+        relative_paths.append(
+            (CORPUS_ROOT / "LICENSE.txt")
+            .relative_to(REPOSITORY_ROOT)
+            .as_posix()
+        )
+
+        self.assertEqual(len(relative_paths), 69)
+        for relative_path in relative_paths:
             with self.subTest(relative_path=relative_path):
                 filtered_hash = subprocess.check_output(
                     ["git", "hash-object", relative_path],

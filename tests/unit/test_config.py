@@ -51,6 +51,22 @@ class IDFGenXConfigTests(unittest.TestCase):
             {"actual": "24.1", "expected": "23.1"},
         )
 
+    def test_direct_construction_rejects_unsupported_version(self) -> None:
+        """直接构造配置时也不得绕过项目固定的 EnergyPlus 版本约束。"""
+
+        with self.assertRaises(ConfigurationError):
+            IDFGenXConfig(
+                energyplus_path=None,
+                energyplus_version="24.1",
+            )
+
+    def test_injected_tilde_path_does_not_use_host_home(self) -> None:
+        """注入环境中的波浪线路径不得依赖测试宿主机的用户目录。"""
+
+        config = load_config({"EPLUS_PATH": "~/EnergyPlus"})
+
+        self.assertEqual(config.energyplus_path, Path("~/EnergyPlus"))
+
 
 if __name__ == "__main__":
     unittest.main()
