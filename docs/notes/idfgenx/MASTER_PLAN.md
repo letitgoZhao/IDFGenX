@@ -78,7 +78,7 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 | IDFGX-M1-015 | 构建 1K Smoke 和完整数据质量报告 | M1-014 | Smoke release | proposed |
 | IDFGX-M1-016 | 构建 10K Pilot | M1-015 | Pilot release | proposed |
 | IDFGX-M1-017 | 根据 Pilot 扩展 50K/100K | M2/M3 Pilot 门 | Scale release | proposed |
-| IDFGX-M1-018 | 迁移精选官方 IDF 目录并补充中文说明 | M1-001 | `selected_official_idfs`、README、迁移验证 | ready |
+| IDFGX-M1-018 | 迁移精选官方 IDF 目录并补充中文说明 | M1-001 | `selected_official_idfs`、README、迁移验证 | in_progress |
 
 M1 发布门：进入 release 的标签 V0–V6 通过率 100%，Prompt 可反向标定，无 building family 泄漏，所有样本可追溯到 catalog、配置、Compiler 和质量报告。
 

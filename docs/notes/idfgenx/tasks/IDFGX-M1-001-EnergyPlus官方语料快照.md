@@ -14,6 +14,10 @@ expected_report: docs/notes/idfgenx/reports/2026-08-21-IDFGX-M1-001-EnergyPlus�
 
 # IDFGX-M1-001：建立 EnergyPlus v23.1 一次性官方语料快照
 
+> 路径迁移：自 2026-08-25 起，本快照的规范位置为
+> `data/selected_official_idfs`，见 `ADR-0001`。本文保留的旧路径用于记录
+> 2026-08-21 的实际执行事实。
+
 ## 1. 背景
 
 本机 EnergyPlus v23.1 包含 731 个 Example IDF 和 47 个 DataSet IDF。项目需要在自动标定前一次性保存有用、非重复、可追溯的官方模型，避免后续反复从安装目录人工挑选；同时必须隔离永久不支持的真实 HVAC 和其他超范围对象。

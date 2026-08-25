@@ -10,7 +10,7 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | idle | X-001 已完成 | 开始 `IDFGX-M1-018` |
+| IDFGX-M1-018 | in_progress | 目录与字节保真迁移已完成 | 通过 68/32/8 完整门禁并输出报告 |
 
 ## 下一批 Ready
 
@@ -20,7 +20,6 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 | IDFGX-M0-002 | ResolvedScenarioSpec v0.1 | M0-001 完成 |
 | IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
 | IDFGX-M1-006 | DisclosurePlan | M0-001/002 完成 |
-| IDFGX-M1-018 | 精选官方 IDF 目录迁移与中文说明 | M1-001 完成，ADR-0001 已接受 |
 
 ## 当前阻塞
 
