@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -34,6 +35,26 @@ class SelectedOfficialIdfsLayoutTests(unittest.TestCase):
         self.assertEqual(len(records), 68)
         self.assertEqual(len(list(CORPUS_ROOT.glob("idf/**/*.idf"))), 68)
         self.assertTrue(all(bool(result["passed"]) for result in hash_results))
+
+    def test_git_clean_filter_preserves_snapshot_bytes(self) -> None:
+        """Git 暂存过滤器不得改变官方 IDF 和许可证的原始字节。"""
+
+        for relative_path in (
+            "data/selected_official_idfs/idf/simple/1ZoneUncontrolled.idf",
+            "data/selected_official_idfs/LICENSE.txt",
+        ):
+            with self.subTest(relative_path=relative_path):
+                filtered_hash = subprocess.check_output(
+                    ["git", "hash-object", relative_path],
+                    cwd=REPOSITORY_ROOT,
+                    text=True,
+                ).strip()
+                raw_hash = subprocess.check_output(
+                    ["git", "hash-object", "--no-filters", relative_path],
+                    cwd=REPOSITORY_ROOT,
+                    text=True,
+                ).strip()
+                self.assertEqual(filtered_hash, raw_hash)
 
 
 if __name__ == "__main__":
