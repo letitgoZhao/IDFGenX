@@ -10,13 +10,12 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | idle | M1-018 已完成 | 开始 `IDFGX-M0-001` |
+| IDFGX-M0-002 | in_progress | 定义 ResolvedScenarioSpec v0.1 与能力边界 | 实现 M0-003 Resolver |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-M0-001 | ScenarioSpecDraft v0.1 | X-001 完成 |
 | IDFGX-M0-002 | ResolvedScenarioSpec v0.1 | M0-001 完成 |
 | IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
 | IDFGX-M1-006 | DisclosurePlan | M0-001/002 完成 |
@@ -34,6 +33,7 @@ Phase 0 工程基线、本地环境、共享配置/错误骨架和 EnergyPlus v2
 
 ## 最近完成
 
+- `IDFGX-M0-001`：冻结 Pydantic ScenarioSpecDraft v0.1，保留原始单位和字段状态；31/31 单测通过；
 - `IDFGX-M1-018`：规范目录迁移为 `data/selected_official_idfs`，新增中文 README；68/68 哈希、32/32 转换、8/8 仿真和 27/27 单测通过；
 - `IDFGX-X-001`：新增统一配置、错误码和项目异常基类，固定 Python 3.11；9 项相关测试、全量 27/27 通过；
 - `IDFGX-X-005`：前端 tsconfig 改为自包含配置，移除 `@vue/tsconfig`，类型检查和生产构建通过；

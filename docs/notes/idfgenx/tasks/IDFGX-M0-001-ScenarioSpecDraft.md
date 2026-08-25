@@ -2,7 +2,7 @@
 task_id: IDFGX-M0-001
 title: 冻结 ScenarioSpecDraft v0.1 字段和状态语义
 module: M0
-status: in_progress
+status: done
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -38,8 +38,19 @@ git diff --check
 
 ## 完成标准
 
-- [ ] Draft 模型具有中文 docstring、类型和 `0.1` JSON Schema；
-- [ ] 状态与原始单位可序列化保留；
-- [ ] 相关失败测试先 RED 再 GREEN；
-- [ ] 全量测试、编译和锁文件检查通过；
-- [ ] 执行报告与 `STATUS.md` 已更新。
+- [x] Draft 模型具有中文 docstring、类型和 `0.1` JSON Schema；
+- [x] 状态与原始单位可序列化保留；
+- [x] 相关失败测试先 RED 再 GREEN；
+- [x] 全量测试、编译和锁文件检查通过；
+- [x] 执行报告与 `STATUS.md` 已更新。
+
+## 执行记录
+
+- 2026-08-25：4 个 Draft 契约测试先因 `idfgenx.schemas` 不存在而 RED，随后
+  实现 Pydantic v2 模型转为 GREEN；全量 31 项单测、compileall、`uv lock --check`
+  和 `git diff --check` 通过。
+
+## 结果
+
+- 报告：`docs/notes/idfgenx/reports/2026-08-25-IDFGX-M0-001-ScenarioSpecDraft.md`
+- Commit：`e2baad3`
