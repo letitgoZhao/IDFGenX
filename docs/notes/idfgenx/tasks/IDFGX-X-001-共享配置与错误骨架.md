@@ -2,7 +2,7 @@
 task_id: IDFGX-X-001
 title: 建立共享配置与错误骨架
 module: X
-status: ready
+status: in_progress
 owner: Codex
 created: 2026-08-25
 updated: 2026-08-25
@@ -98,7 +98,8 @@ git diff --check
 
 ## 12. 执行记录
 
-等待书面设计确认后实施。
+- 2026-08-25：从已批准设计 commit `5b7c67c` 开始实施，使用隔离分支
+  `feature/idfgx-x001-m1018`。
 
 ## 13. 结果
 
