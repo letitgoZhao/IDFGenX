@@ -1,6 +1,6 @@
 # IDFGenX AI 开发当前状态
 
-> 更新时间：2026-08-21
+> 更新时间：2026-08-25
 
 ## 当前阶段
 
@@ -21,6 +21,7 @@ Phase 0 工程基线、本地环境和 EnergyPlus v23.1 官方语料快照已经
 | IDFGX-M0-002 | ResolvedScenarioSpec v0.1 | M0-001 完成 |
 | IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
 | IDFGX-M1-006 | DisclosurePlan | M0-001/002 完成 |
+| IDFGX-M1-018 | 精选官方 IDF 目录迁移与中文说明 | M1-001 完成，ADR-0001 已接受 |
 
 ## 当前阻塞
 
