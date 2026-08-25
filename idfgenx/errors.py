@@ -88,3 +88,23 @@ class ConfigurationError(IDFGenXError):
             context=context,
             cause=cause,
         )
+
+
+class ResolutionError(IDFGenXError):
+    """表示 Draft 无法确定性解析为 Compiler 输入。"""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        context: Mapping[str, object] | None = None,
+        cause: BaseException | None = None,
+    ) -> None:
+        """创建包含字段上下文的统一解析异常。"""
+
+        super().__init__(
+            ErrorCode.RESOLUTION_FAILED,
+            message,
+            context=context,
+            cause=cause,
+        )

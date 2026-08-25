@@ -6,7 +6,7 @@
 
 from idfgenx import config, errors
 from idfgenx.config import IDFGenXConfig, load_config
-from idfgenx.errors import ConfigurationError, ErrorCode, IDFGenXError
+from idfgenx.errors import ConfigurationError, ErrorCode, IDFGenXError, ResolutionError
 
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
     "ErrorCode",
     "IDFGenXConfig",
     "IDFGenXError",
+    "ResolutionError",
     "__version__",
     "config",
     "errors",
