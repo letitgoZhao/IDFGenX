@@ -108,3 +108,12 @@ class ResolutionError(IDFGenXError):
             context=context,
             cause=cause,
         )
+
+
+class ConversionError(IDFGenXError):
+    """表示 epJSON 到 IDF 的外部转换失败。"""
+
+    def __init__(self, message: str, *, context: Mapping[str, object] | None = None, cause: BaseException | None = None) -> None:
+        """创建保留转换进程上下文的领域异常。"""
+
+        super().__init__(ErrorCode.CONVERSION_FAILED, message, context=context, cause=cause)

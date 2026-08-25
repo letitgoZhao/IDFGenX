@@ -75,7 +75,7 @@ def _surface_payload(surface: Surface) -> dict[str, Any]:
         "zone_name": surface.zone_name,
         "outside_boundary_condition": surface.outside_boundary_condition,
         "number_of_vertices": 4,
-        "vertices": [list(vertex) for vertex in surface.vertices],
+        "vertices": [_vertex_payload(vertex) for vertex in surface.vertices],
     }
     if surface.outside_boundary_condition_object:
         payload["outside_boundary_condition_object"] = surface.outside_boundary_condition_object
@@ -83,3 +83,13 @@ def _surface_payload(surface: Surface) -> dict[str, Any]:
         payload["sun_exposure"] = "SunExposed"
         payload["wind_exposure"] = "WindExposed"
     return payload
+
+
+def _vertex_payload(vertex: tuple[float, float, float]) -> dict[str, float]:
+    """将内部三元坐标映射为 v23.1 epJSON 顶点对象。"""
+
+    return {
+        "vertex_x_coordinate": vertex[0],
+        "vertex_y_coordinate": vertex[1],
+        "vertex_z_coordinate": vertex[2],
+    }

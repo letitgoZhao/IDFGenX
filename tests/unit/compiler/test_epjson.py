@@ -35,7 +35,17 @@ class EpJsonTests(unittest.TestCase):
         self.assertEqual(len(document["Zone"]), 1)
         self.assertEqual(len(document["BuildingSurface:Detailed"]), 6)
         self.assertEqual(len(document["FenestrationSurface:Detailed"]), 4)
+        surface = next(iter(document["BuildingSurface:Detailed"].values()))
+        self.assertEqual(surface["number_of_vertices"], 4)
+        self.assertEqual(
+            set(surface["vertices"][0]),
+            {"vertex_x_coordinate", "vertex_y_coordinate", "vertex_z_coordinate"},
+        )
         self.assertTrue(all("building_surface_name" in item for item in document["FenestrationSurface:Detailed"].values()))
+        window = next(iter(document["FenestrationSurface:Detailed"].values()))
+        self.assertEqual(window["number_of_vertices"], 4)
+        self.assertEqual(window["vertex_1_x_coordinate"], 0.2)
+        self.assertNotIn("vertices", window)
         self.assertLess(payload.index('"Building"'), payload.index('"Zone"'))
 
 

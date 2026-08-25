@@ -6,11 +6,12 @@
 
 from idfgenx import config, errors
 from idfgenx.config import IDFGenXConfig, load_config
-from idfgenx.errors import ConfigurationError, ErrorCode, IDFGenXError, ResolutionError
+from idfgenx.errors import ConfigurationError, ConversionError, ErrorCode, IDFGenXError, ResolutionError
 
 
 __all__ = [
     "ConfigurationError",
+    "ConversionError",
     "ErrorCode",
     "IDFGenXConfig",
     "IDFGenXError",
