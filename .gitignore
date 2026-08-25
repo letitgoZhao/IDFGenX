@@ -32,6 +32,7 @@ outputs/
 .claude/
 .codex/
 .agents/
+.worktrees/
 repo/
 docs/notes/
 docs/papers/
