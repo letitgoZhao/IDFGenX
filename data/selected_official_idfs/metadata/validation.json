@@ -1,211 +1,211 @@
 {
   "conversion_results": [
     {
-      "duration_seconds": 0.149,
+      "duration_seconds": 0.337,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/1ZoneUncontrolled.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\1ZoneUncontrolled.idf\n"
     },
     {
-      "duration_seconds": 0.144,
+      "duration_seconds": 0.137,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/1ZoneUncontrolled3SurfaceZone.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled3SurfaceZone.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\1ZoneUncontrolled3SurfaceZone.idf\n"
     },
     {
-      "duration_seconds": 0.168,
+      "duration_seconds": 0.137,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/1ZoneUncontrolled_OtherEquipmentWithFuel.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled_OtherEquipmentWithFuel.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\1ZoneUncontrolled_OtherEquipmentWithFuel.idf\n"
     },
     {
-      "duration_seconds": 0.138,
+      "duration_seconds": 0.137,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf\n"
-    },
-    {
-      "duration_seconds": 0.131,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1A.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1A.idf\n"
-    },
-    {
-      "duration_seconds": 0.13,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1B-Solution.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1B-Solution.idf\n"
-    },
-    {
-      "duration_seconds": 0.136,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1C-Solution.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1C-Solution.idf\n"
-    },
-    {
-      "duration_seconds": 0.133,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\BasicsFiles\\Exercise1D-Solution.idf\n"
-    },
-    {
-      "duration_seconds": 0.138,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\BasicsFiles\\Exercise2.idf\n"
-    },
-    {
-      "duration_seconds": 0.299,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/CmplxGlz_SchedSurfGains.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\CmplxGlz_SchedSurfGains.idf\n"
-    },
-    {
-      "duration_seconds": 0.15,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/CmplxGlz_SingleZone_DoubleClearAir.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\CmplxGlz_SingleZone_DoubleClearAir.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\1ZoneUncontrolled_Win_ASH55_Thermal_Comfort.idf\n"
     },
     {
       "duration_seconds": 0.135,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/DaylightingDeviceShelf.idf",
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1A.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DaylightingDeviceShelf.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\BasicsFiles\\Exercise1A.idf\n"
     },
     {
-      "duration_seconds": 0.143,
+      "duration_seconds": 0.132,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/DaylightingDeviceTubular.idf",
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1B-Solution.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DaylightingDeviceTubular.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\BasicsFiles\\Exercise1B-Solution.idf\n"
     },
     {
-      "duration_seconds": 0.137,
+      "duration_seconds": 0.131,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/DElight-Detailed-Comparison.idf",
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1C-Solution.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\DElight-Detailed-Comparison.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\BasicsFiles\\Exercise1C-Solution.idf\n"
     },
     {
-      "duration_seconds": 0.136,
+      "duration_seconds": 0.131,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/EquivalentLayerWindow.idf",
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\EquivalentLayerWindow.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\BasicsFiles\\Exercise1D-Solution.idf\n"
     },
     {
-      "duration_seconds": 0.137,
+      "duration_seconds": 0.15,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf",
+      "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\Flr_Rf_8Sides.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\BasicsFiles\\Exercise2.idf\n"
+    },
+    {
+      "duration_seconds": 0.287,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/CmplxGlz_SchedSurfGains.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\CmplxGlz_SchedSurfGains.idf\n"
     },
     {
       "duration_seconds": 0.144,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/GeometryTest.idf",
+      "source_relative_path": "ExampleFiles/CmplxGlz_SingleZone_DoubleClearAir.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\GeometryTest.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\CmplxGlz_SingleZone_DoubleClearAir.idf\n"
     },
     {
-      "duration_seconds": 0.137,
+      "duration_seconds": 0.132,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/InternalMass_wZoneList.idf",
+      "source_relative_path": "ExampleFiles/DaylightingDeviceShelf.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\InternalMass_wZoneList.idf\n"
-    },
-    {
-      "duration_seconds": 0.138,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/PassiveTrombeWall.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PassiveTrombeWall.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\DaylightingDeviceShelf.idf\n"
     },
     {
       "duration_seconds": 0.14,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/PurchAirTables_SQL.idf",
+      "source_relative_path": "ExampleFiles/DaylightingDeviceTubular.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirTables_SQL.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\DaylightingDeviceTubular.idf\n"
     },
     {
-      "duration_seconds": 0.144,
+      "duration_seconds": 0.136,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/PurchAirWindowBlind.idf",
+      "source_relative_path": "ExampleFiles/DElight-Detailed-Comparison.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWindowBlind.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\DElight-Detailed-Comparison.idf\n"
     },
     {
-      "duration_seconds": 0.138,
+      "duration_seconds": 0.132,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
-      "source_relative_path": "ExampleFiles/PurchAirWithDaylighting.idf",
+      "source_relative_path": "ExampleFiles/EquivalentLayerWindow.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDaylighting.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\EquivalentLayerWindow.idf\n"
+    },
+    {
+      "duration_seconds": 0.136,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\Flr_Rf_8Sides.idf\n"
+    },
+    {
+      "duration_seconds": 0.139,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/GeometryTest.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\GeometryTest.idf\n"
+    },
+    {
+      "duration_seconds": 0.139,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/InternalMass_wZoneList.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\InternalMass_wZoneList.idf\n"
+    },
+    {
+      "duration_seconds": 0.137,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PassiveTrombeWall.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PassiveTrombeWall.idf\n"
     },
     {
       "duration_seconds": 0.141,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirTables_SQL.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PurchAirTables_SQL.idf\n"
+    },
+    {
+      "duration_seconds": 0.138,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWindowBlind.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PurchAirWindowBlind.idf\n"
+    },
+    {
+      "duration_seconds": 0.136,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
+      "source_relative_path": "ExampleFiles/PurchAirWithDaylighting.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PurchAirWithDaylighting.idf\n"
+    },
+    {
+      "duration_seconds": 0.149,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
       "source_relative_path": "ExampleFiles/PurchAirWithDaylightingAndShadeControl.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDaylightingAndShadeControl.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PurchAirWithDaylightingAndShadeControl.idf\n"
     },
     {
       "duration_seconds": 0.138,
@@ -214,25 +214,25 @@
       "return_code": 0,
       "source_relative_path": "ExampleFiles/PurchAirWithDoubleFacadeDaylighting.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\PurchAirWithDoubleFacadeDaylighting.idf\n"
-    },
-    {
-      "duration_seconds": 0.136,
-      "output_exists": true,
-      "passed": true,
-      "return_code": 0,
-      "source_relative_path": "ExampleFiles/ReflectiveAdjacentBuilding.idf",
-      "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\ReflectiveAdjacentBuilding.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\PurchAirWithDoubleFacadeDaylighting.idf\n"
     },
     {
       "duration_seconds": 0.138,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
+      "source_relative_path": "ExampleFiles/ReflectiveAdjacentBuilding.idf",
+      "stderr_tail": "",
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\ReflectiveAdjacentBuilding.idf\n"
+    },
+    {
+      "duration_seconds": 0.139,
+      "output_exists": true,
+      "passed": true,
+      "return_code": 0,
       "source_relative_path": "ExampleFiles/SolarShadingTest.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\SolarShadingTest.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\SolarShadingTest.idf\n"
     },
     {
       "duration_seconds": 0.137,
@@ -241,52 +241,52 @@
       "return_code": 0,
       "source_relative_path": "ExampleFiles/StackedZonesWithInterzoneIRTLayers.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\StackedZonesWithInterzoneIRTLayers.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\StackedZonesWithInterzoneIRTLayers.idf\n"
     },
     {
-      "duration_seconds": 0.137,
+      "duration_seconds": 0.134,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/StormWindow.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\StormWindow.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\StormWindow.idf\n"
     },
     {
-      "duration_seconds": 0.149,
+      "duration_seconds": 0.135,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/SurfaceTest.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\SurfaceTest.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\SurfaceTest.idf\n"
     },
     {
-      "duration_seconds": 0.146,
+      "duration_seconds": 0.135,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/UserInputViewFactorFile-LshapedZone.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\UserInputViewFactorFile-LshapedZone.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\UserInputViewFactorFile-LshapedZone.idf\n"
     },
     {
-      "duration_seconds": 0.149,
+      "duration_seconds": 0.132,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/VaryingLocationAndOrientation.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\simple\\VaryingLocationAndOrientation.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\simple\\VaryingLocationAndOrientation.idf\n"
     },
     {
-      "duration_seconds": 0.14,
+      "duration_seconds": 0.141,
       "output_exists": true,
       "passed": true,
       "return_code": 0,
       "source_relative_path": "ExampleFiles/WindowTestsSimple.idf",
       "stderr_tail": "",
-      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\data\\official_idf_v23_1\\idf\\complex\\WindowTestsSimple.idf\n"
+      "stdout_tail": "Input file converted to EPJSON successfully | 1/1 | D:\\GithubProject\\IDFGenX\\.worktrees\\idfgx-x001-m1018\\data\\selected_official_idfs\\idf\\complex\\WindowTestsSimple.idf\n"
     }
   ],
   "energyplus_version": "23.1",
@@ -702,7 +702,7 @@
   ],
   "simulation_results": [
     {
-      "duration_seconds": 0.261,
+      "duration_seconds": 1.487,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -711,10 +711,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/1ZoneUncontrolled.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nWarming up {17}\nWarming up {18}\nWarming up {19}\nWarming up {20}\nWarming up {21}\nWarming up {22}\nStarting Simulation at 12/21 for DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nStarting Simulation at 07/21 for DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB\nWriting tabular output file results using comma format.\nWriting tabular output file results using tab format.\nWriting tabular output file results using text format.\nWriting tabular output file results using HTML format.\nWriting tabular output file results using XML format.\nEnergyPlus Run Time=00hr 00min  0.10sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nWarming up {17}\nWarming up {18}\nWarming up {19}\nWarming up {20}\nWarming up {21}\nWarming up {22}\nStarting Simulation at 12/21 for DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nWarming up {7}\nWarming up {8}\nWarming up {9}\nWarming up {10}\nWarming up {11}\nWarming up {12}\nWarming up {13}\nWarming up {14}\nWarming up {15}\nWarming up {16}\nStarting Simulation at 07/21 for DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB\nWriting tabular output file results using comma format.\nWriting tabular output file results using tab format.\nWriting tabular output file results using text format.\nWriting tabular output file results using HTML format.\nWriting tabular output file results using XML format.\nEnergyPlus Run Time=00hr 00min  0.14sec\n"
     },
     {
-      "duration_seconds": 0.285,
+      "duration_seconds": 0.25,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -723,10 +723,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/BasicsFiles/Exercise1D-Solution.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING .4% CONDITIONS DB=>MWB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99.6% CONDITIONS\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.11sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING .4% CONDITIONS DB=>MWB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99.6% CONDITIONS\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.09sec\n"
     },
     {
-      "duration_seconds": 0.332,
+      "duration_seconds": 0.319,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -738,7 +738,7 @@
       "stdout_tail": "tical Properties\nInitializing Solar Calculations\nAllocate Solar Module Arrays\nInitializing Zone and Enclosure Report Variables\nInitializing Surface (Shading) Report Variables\nComputing Interior Solar Absorption Factors\nDetermining Shadowing Combinations\nComputing Window Shade Absorption Factors\nProceeding with Initializing Solar Calculations\nInitializing Surfaces\nInitializing Outdoor environment for Surfaces\nSetting up Surface Reporting Variables\nInitializing Temperature and Flux Histories\nInitializing Window Shading\nComputing Interior Absorption Factors\nComputing Interior Diffuse Solar Absorption Factors\nInitializing Solar Heat Gains\nInitializing Internal Heat Gains\nInitializing Interior Solar Distribution\nInitializing Interior Convection Coefficients\nGathering Information for Predefined Reporting\nCompleted Initializing Surface Heat Balance\nCalculate Outside Surface Heat Balance\nCalculate Inside Surface Heat Balance\nCalculate Air Heat Balance\nInitializing HVAC\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nPerforming Zone Sizing Simulation\n...for Sizing Period: #1 ATLANTA HARTSFIELD INTL AP ANN HTG 99.6% CONDNS DB\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nWarming up\nPerforming Zone Sizing Simulation\n...for Sizing Period: #2 ATLANTA HARTSFIELD INTL AP ANN CLG .4% CONDNS DB=>MWB\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for ATLANTA HARTSFIELD INTL AP ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for ATLANTA HARTSFIELD INTL AP ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.17sec\n"
     },
     {
-      "duration_seconds": 0.321,
+      "duration_seconds": 0.274,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -747,10 +747,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/BasicsFiles/Exercise2.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99% CONDITIONS\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING 1% CONDITIONS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.13sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHICAGO_IL_USA HEATING 99% CONDITIONS\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHICAGO_IL_USA COOLING 1% CONDITIONS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.12sec\n"
     },
     {
-      "duration_seconds": 0.26,
+      "duration_seconds": 0.263,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -759,10 +759,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/Flr_Rf_8Sides.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for DENVER STAPLETON INTL ARPT ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for DENVER STAPLETON INTL ARPT ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using tab format.\nEnergyPlus Run Time=00hr 00min  0.10sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for DENVER STAPLETON INTL ARPT ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for DENVER STAPLETON INTL ARPT ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using tab format.\nEnergyPlus Run Time=00hr 00min  0.09sec\n"
     },
     {
-      "duration_seconds": 0.446,
+      "duration_seconds": 0.404,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -771,10 +771,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/GeometryTest.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=01/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for COLORADO_SPRGS ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=07/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.26sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=01/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for COLORADO_SPRGS ANN HTG 99.6% CONDNS DB\nInitializing New Environment Parameters\nWarming up {1}\nCalculating Detailed Daylighting Factors, Start Date=07/21\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.25sec\n"
     },
     {
-      "duration_seconds": 0.49,
+      "duration_seconds": 0.37,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -783,10 +783,10 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/SolarShadingTest.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for PHOENIX ANN HTG 99.6% CONDNS DB WITH SUN\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for PHOENIX ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.26sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 12/21 for PHOENIX ANN HTG 99.6% CONDNS DB WITH SUN\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for PHOENIX ANN CLG .4% CONDNS DB=>MWB\nWriting tabular output file results using HTML format.\nEnergyPlus Run Time=00hr 00min  0.21sec\n"
     },
     {
-      "duration_seconds": 0.332,
+      "duration_seconds": 0.262,
       "error_file_exists": true,
       "fatal_count": 0,
       "passed": true,
@@ -795,7 +795,7 @@
       "severe_count": 0,
       "source_relative_path": "ExampleFiles/StackedZonesWithInterzoneIRTLayers.idf",
       "stderr_tail": "EnergyPlus Completed Successfully.\n",
-      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.21 23:19\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHAMPAIGN_URBANA ANN HTG WIND 99% CONDNS WS=>MCDB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHAMPAIGN_URBANA ANN CLG .4% CONDNS DB=>MWB\nEnergyPlus Run Time=00hr 00min  0.13sec\n"
+      "stdout_tail": "EnergyPlus Starting\nEnergyPlus, Version 23.1.0-87ed9199d4, YMD=2026.08.25 15:13\nAdjusting Air System Sizing\nAdjusting Standard 62.1 Ventilation Sizing\nInitializing Simulation\nReporting Surfaces\nBeginning Primary Simulation\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 01/21 for CHAMPAIGN_URBANA ANN HTG WIND 99% CONDNS WS=>MCDB\nInitializing New Environment Parameters\nWarming up {1}\nWarming up {2}\nWarming up {3}\nWarming up {4}\nWarming up {5}\nWarming up {6}\nStarting Simulation at 07/21 for CHAMPAIGN_URBANA ANN CLG .4% CONDNS DB=>MWB\nEnergyPlus Run Time=00hr 00min  0.11sec\n"
     }
   ],
   "summary": {
