@@ -1,6 +1,6 @@
 # IDFGenX AI 实施总计划
 
-> 2026-08-25 更新：`IDFGX-M0-016` 已完成；生产 Spec-LoRA 仅学习 Prompt→ScenarioSpecDraft，IDF/epJSON 仅为隔离的验证工件。M0 下一项为 `IDFGX-M0-017`（Windows/Linux 一致性验证）。
+> 2026-08-26 更新：`IDFGX-M0-017` 已按当前范围完成 Windows 代表样本可复现性验证：single/perimeter_core 的独立双次运行均通过 V0–V6，canonical epJSON、normalized IDF 哈希与阶段结论一致。Linux 与跨平台验证不在本任务范围；M0 下一出口转为 M1-004/M1-006。
 
 > 2026-08-25 更新：`IDFGX-M0-015` 已完成，100 个 Compiler Golden 全部通过；M0 下一项为 `IDFGX-M0-016`（Round-trip、metamorphic 与 mutation 测试）。
 
@@ -57,7 +57,7 @@ M0 共享核心
 | IDFGX-M0-014 | 建立 20 个 MVP Golden 并全部通过 | M0-013 | 20 Golden | done |
 | IDFGX-M0-015 | 扩展到 100 Golden 和复杂场景 | M0-014 | Compiler v1 候选 | done |
 | IDFGX-M0-016 | 建立 Round-trip、metamorphic 和 mutation 测试 | M0-013 | 稳定性证据 | done |
-| IDFGX-M0-017 | Windows/Linux 代表样本一致性验证 | M0-015 | 跨平台报告 | ready |
+| IDFGX-M0-017 | Windows 代表样本工件可复现性验证（不含 Linux） | M0-015 | Windows 可复现性报告 | done |
 
 M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真通过率均为 100%，合法支持域无未处理异常，同输入规范化结果可重复。
 
@@ -70,9 +70,9 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 | IDFGX-M1-001 | 扫描 EnergyPlus v23.1 安装并建立一次性官方语料快照 | SETUP-002 | 68 个精选 IDF、778 条 inventory、manifest 和许可证 | done |
 | IDFGX-M1-002 | 分类官方 IDF 对象、几何、HVAC 和可复用角色 | M1-001 | 778 条可检索 inventory | done |
 | IDFGX-M1-003 | 人工审核核心种子、几何参考、模板和 allowlist | M1-002 | 12/20/25/11 精选名单 | done |
-| IDFGX-M1-004 | 冻结 S1–S5/C1–C5 场景桶和约束 | M0-002 | data config v0.1 | ready |
+| IDFGX-M1-004 | 冻结 S1–S5/C1–C5 场景桶和约束 | M0-002 | data config v0.1 | done |
 | IDFGX-M1-005 | 实现离散分层与 LHS/Sobol 连续采样 | M1-004/M0-003 | deterministic sampler | proposed |
-| IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | ready |
+| IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | done |
 | IDFGX-M1-007 | 实现中英文 clean Prompt 模板 | M1-006 | prompt config v0.1 | proposed |
 | IDFGX-M1-008 | 实现单位、语序、专家表达和受控噪声 | M1-007 | robust prompt families | proposed |
 | IDFGX-M1-009 | 实现 Prompt 数值/单位/实体反向标定 | M1-007 | calibration report | proposed |

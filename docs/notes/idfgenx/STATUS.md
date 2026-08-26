@@ -1,22 +1,26 @@
 # IDFGenX AI 开发当前状态
 
+> 2026-08-26：`IDFGX-M0-017` 已按当前范围完成 Windows 代表样本可复现性验证。single/perimeter_core 均在独立工作目录的两次 Compiler 运行中通过 V0–V6，canonical epJSON、normalized IDF 哈希和阶段结论一致。Linux 与跨平台验证明确不在本任务范围，未作完成声明；下一项为 M1-004/M1-006。
+
+> 2026-08-26：`IDFGX-M1-004` 已完成。S1–S5/C1–C5 场景桶、参数范围、训练资格与组合约束已冻结；C5 仅评估，unsupported feature 不进入正向 SFT。下一项为 M1-006 与 M1-005。
+
 > 2026-08-25：`IDFGX-M0-016` 已完成。ADR-0001 冻结生产 Spec-LoRA 与 IDF 工件隔离；single/perimeter_core 的 epJSON→IDF→epJSON 语义 round-trip、metamorphic 与 mutation 稳定性测试均已通过。下一项为 M0-017 跨平台一致性验证。
 
 > 2026-08-25：`IDFGX-M0-015` 已完成。Compiler Golden 已扩展至 100 项（single 50、perimeter_core 50），100/100 通过真实 EnergyPlus v23.1 设计日 V0–V6 验证；下一项为 M0-016 稳定性测试。
 
 > 2026-08-25：`IDFGX-M0-013/014` 已完成。独立 V0–V6 Validator、20 个 MVP Golden 与 EnergyPlus v23.1 设计日门禁均已验证；全量 76/76 测试通过。后续进入 M0-015（100 Golden 扩展）。
 
-> 更新时间：2026-08-25
+> 更新时间：2026-08-26
 
 ## 当前阶段
 
-Draft → ResolvedScenarioSpec → Resolver → Compiler 最小闭环已经完成。Compiler 从受控 ScenarioSpec 生成 EnergyPlus v23.1 可转换 IDF；Validator 与 Golden 仍是后续独立工作。
+Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。Compiler 从受控 ScenarioSpec 生成 EnergyPlus v23.1 可转换 IDF；100 Golden、V0–V6、稳定性和代表样本重复性均已有独立证据。下一阶段进入 M1 数据配置与 Prompt 契约。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | 无 | 本轮目标已在 Compiler 阶段结束 | 后续可独立启动 M0-013 Validator |
+| 无 | 无 | M0 Windows Compiler 可复现性验证已结束 | 启动 M1-004 或 M1-006 |
 
 ## 下一批 Ready
 
