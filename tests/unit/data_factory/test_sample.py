@@ -64,6 +64,28 @@ class SamplingConfigTests(unittest.TestCase):
             with self.assertRaises(ConfigurationError):
                 load_sampling_config(invalid)
 
+    def test_policy_mapping_is_immutable_and_equivalent_json_has_same_hash(
+        self,
+    ) -> None:
+        """嵌套配额若可变会让已验证策略的行为和哈希在运行中漂移。"""
+
+        _, load_sampling_config, sampling_config_sha256 = self._load_api()
+        path = Path("configs/data/sampling_v0_1.json")
+        config = load_sampling_config(path)
+        original_hash = sampling_config_sha256(config)
+
+        with self.assertRaises(TypeError):
+            config.training_complexity_shares["simple"] = 0.9  # type: ignore[index]
+        self.assertEqual(sampling_config_sha256(config), original_hash)
+
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload["training_complexity_shares"] = {"complex": 0.6, "simple": 0.4}
+        with tempfile.TemporaryDirectory() as directory:
+            equivalent_path = Path(directory) / "equivalent.json"
+            equivalent_path.write_text(json.dumps(payload), encoding="utf-8")
+            equivalent = load_sampling_config(equivalent_path)
+        self.assertEqual(sampling_config_sha256(equivalent), original_hash)
+
 
 class BucketSamplingTests(unittest.TestCase):
     """验证单桶采样的确定性、覆盖和失败边界。"""
@@ -223,6 +245,43 @@ class BucketSamplingTests(unittest.TestCase):
                 engine="halton",  # type: ignore[arg-type]
             )
         self.assertEqual(unknown_engine.exception.context["engine"], "halton")
+
+    def test_candidate_budget_error_has_complete_zero_attempt_context(self) -> None:
+        """预生成失败也必须携带完整请求上下文，不能伪造已尝试候选。"""
+
+        _, _, sample_bucket = self._load_api()
+        limited = self.config.model_copy(
+            update={"candidate_multiplier": 2, "maximum_candidate_count": 4}
+        )
+
+        with self.assertRaises(ConfigurationError) as captured:
+            sample_bucket(self.catalog, limited, "S1", 3, seed=17)
+
+        self.assertEqual(
+            captured.exception.context,
+            {
+                "bucket_id": "S1",
+                "requested_count": 3,
+                "seed": 17,
+                "engine": "latin_hypercube",
+                "candidate_count": 6,
+                "maximum_candidate_count": 4,
+                "attempt_count": 0,
+                "accepted_count": 0,
+                "rejection_counts": {},
+            },
+        )
+
+    def test_record_rejection_provenance_is_immutable(self) -> None:
+        """返回后可改写拒绝快照会使样本审计证据失去可信度。"""
+
+        _, _, sample_bucket = self._load_api()
+        record = sample_bucket(self.catalog, self.config, "S1", 1, seed=1)[0]
+
+        with self.assertRaises(TypeError):
+            record.rejection_counts["tampered"] = 1  # type: ignore[index]
+        self.assertNotIn("tampered", record.rejection_counts)
+        self.assertEqual(record.model_dump(mode="json")["rejection_counts"], {})
 
     def test_reports_rejections_when_no_candidate_can_pass_domain_gates(self) -> None:
         """候选耗尽时返回部分批次会掩盖桶范围与组合门禁的冲突。"""

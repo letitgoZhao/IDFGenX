@@ -6,16 +6,26 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 from enum import StrEnum
 from hashlib import sha256
 from itertools import product
 from math import ceil, floor, isclose, log2
 from pathlib import Path
+from types import MappingProxyType
 from typing import Literal, cast
 
 import numpy as np
-from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    ValidationError,
+    field_serializer,
+    field_validator,
+    model_validator,
+)
 from scipy.stats import qmc
 
 from idfgenx.data_factory.scenarios import (
@@ -69,10 +79,29 @@ class SamplingConfig(BaseModel):
     default_engine: SamplingEngine
     continuous_fields: tuple[str, ...]
     discrete_fields: tuple[str, ...]
-    training_complexity_shares: dict[str, float]
+    training_complexity_shares: Mapping[str, float]
     continuous_precision: int = Field(ge=0, le=12)
     candidate_multiplier: int = Field(ge=2)
     maximum_candidate_count: int = Field(ge=2)
+
+    @field_validator("training_complexity_shares", mode="after")
+    @classmethod
+    def freeze_training_complexity_shares(
+        cls,
+        value: Mapping[str, float],
+    ) -> Mapping[str, float]:
+        """深冻结训练配额，防止验证后行为和配置哈希被原地改写。"""
+
+        return MappingProxyType(dict(value))
+
+    @field_serializer("training_complexity_shares")
+    def serialize_training_complexity_shares(
+        self,
+        value: Mapping[str, float],
+    ) -> dict[str, float]:
+        """把只读配额恢复为规范 JSON 可序列化的普通对象。"""
+
+        return dict(value)
 
     @model_validator(mode="after")
     def validate_sampling_contract(self) -> "SamplingConfig":
@@ -170,10 +199,29 @@ class SamplingRecord(BaseModel):
     distribution: SamplingDistribution
     seed: int = Field(ge=0, le=2**32 - 1)
     attempt_count: int = Field(ge=1)
-    rejection_counts: dict[str, int]
+    rejection_counts: Mapping[str, int]
     scenario_catalog_sha256: str = Field(min_length=64, max_length=64)
     sampling_config_sha256: str = Field(min_length=64, max_length=64)
     spec: ResolvedScenarioSpec
+
+    @field_validator("rejection_counts", mode="after")
+    @classmethod
+    def freeze_rejection_counts(
+        cls,
+        value: Mapping[str, int],
+    ) -> Mapping[str, int]:
+        """深冻结拒绝快照，避免记录发出后审计证据被篡改。"""
+
+        return MappingProxyType(dict(value))
+
+    @field_serializer("rejection_counts")
+    def serialize_rejection_counts(
+        self,
+        value: Mapping[str, int],
+    ) -> dict[str, int]:
+        """把只读拒绝快照序列化为稳定 JSON 对象。"""
+
+        return dict(value)
 
 
 def sample_bucket(
@@ -209,7 +257,13 @@ def sample_bucket(
     _validate_sampling_request(catalog, config, bucket_id, count, seed)
     bucket = catalog.bucket(bucket_id)
     selected_engine = _coerce_engine(engine or config.default_engine)
-    candidate_count = _candidate_count(config, count, selected_engine)
+    candidate_count = _candidate_count(
+        config,
+        count,
+        selected_engine,
+        bucket_id=bucket_id,
+        seed=seed,
+    )
     continuous_candidates = _continuous_candidates(
         bucket,
         config,
@@ -578,6 +632,9 @@ def _candidate_count(
     config: SamplingConfig,
     requested_count: int,
     engine: SamplingEngine,
+    *,
+    bucket_id: str,
+    seed: int,
 ) -> int:
     """计算固定候选池大小，并在分配前执行资源上限。
 
@@ -593,10 +650,15 @@ def _candidate_count(
         raise ConfigurationError(
             "请求超过单次采样候选资源上限。",
             context={
+                "bucket_id": bucket_id,
                 "requested_count": requested_count,
+                "seed": seed,
+                "engine": engine.value,
                 "candidate_count": candidate_count,
                 "maximum_candidate_count": config.maximum_candidate_count,
-                "engine": engine.value,
+                "attempt_count": 0,
+                "accepted_count": 0,
+                "rejection_counts": {},
             },
         )
     return candidate_count

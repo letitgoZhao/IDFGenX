@@ -7,6 +7,7 @@
 - 新增 LHS/Sobol 单桶采样，连续值按桶范围缩放，层数/布局/用途按合法笛卡尔积分层；
 - 新增纵横比、温控顺序、perimeter_core 最短边、Resolved Schema 和桶归属门禁；候选耗尽整批失败并返回结构化拒绝统计；
 - 新增稳定建筑名、配置哈希、场景哈希、引擎、seed、尝试次数和拒绝快照等追溯字段；
+- 采样配额和拒绝快照在验证后转换为只读 Mapping，拒绝通过嵌套字典绕过 Pydantic `frozen=True` 篡改配置哈希或审计证据；
 - 新增训练目录采样，精确执行 40% simple / 60% complex 配额，组内桶数量差不超过 1，并通过 SHA-256 派生子 seed；
 - 默认训练接口仅读取 S1–S5/C1–C4；显式 C5 候选必须至少一个字段位于动态训练桶包络外。
 
@@ -18,13 +19,13 @@
 
 | 命令 | 结果 |
 | --- | --- |
-| `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample -v` | 13/13 通过，0.053 秒 |
-| `.\.venv\Scripts\python.exe -m unittest discover -v` | 99/99 通过，61.422 秒；包含真实 EnergyPlus 转换、100 Golden、稳定性与 V0–V6 |
+| `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample -v` | 16/16 通过，0.046 秒 |
+| `.\.venv\Scripts\python.exe -m unittest discover -v` | 102/102 通过，61.224 秒；包含真实 EnergyPlus 转换、100 Golden、稳定性与 V0–V6 |
 | `.\.venv\Scripts\python.exe -m compileall -q idfgenx tests` | 退出码 0 |
 | `C:\Users\LEGION\.local\bin\uv.exe lock --check` | 退出码 0；51 个包解析一致 |
 | `git diff --check` | 退出码 0 |
 
-TDD 证据：配置测试最初 2/2 因模块缺失失败；单桶测试最初 5/5 因接口缺失失败；训练/C5 测试最初 4/4 因训练接口缺失失败。实现后各层局部验证均转绿。
+TDD 证据：配置测试最初 2/2 因模块缺失失败；单桶测试最初 5/5 因接口缺失失败；训练/C5 测试最初 4/4 因训练接口缺失失败。代码审查后的深冻结与完整错误上下文测试最初 3/12 失败，修复后相关 12/12 转绿，最终专项 16/16。
 
 ## 风险与限制
 
@@ -42,6 +43,7 @@ TDD 证据：配置测试最初 2/2 因模块缺失失败；单桶测试最初 5
 - `9d71ab4 feat(data): add versioned sampling policy`
 - `3cdcfce feat(data): sample scenario buckets with qmc`
 - `5304189 feat(data): allocate training and hard ood samples`
-- 闭环报告、状态和任务更新由本报告所在提交承载。
+- `5f66911 docs(m1): close deterministic sampling task`
+- 深冻结审查修复与最终证据由本报告后续所在提交承载。
 
 未 push、未创建 PR、未修改远端资源。

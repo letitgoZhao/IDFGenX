@@ -109,10 +109,11 @@ git status --short
 - 2026-08-26：创建隔离分支 `feat/idfgx-m1-005-sampling`；基线 86/86 通过。
 - 2026-08-26：官方 PyPI 表明 SciPy 1.17.0 提供 CPython 3.11 Windows x86-64 wheel；设计采用该版本。
 - 2026-08-26：三轮 TDD 分别验证配置接口、单桶 QMC 和训练/C5 行为；RED 均由目标接口或行为缺失触发。
-- 2026-08-26：采样专项 13/13、全量 99/99、`compileall`、`uv lock --check` 和 `git diff --check` 通过。
+- 2026-08-26：代码审查复现策略配额和拒绝快照可变；新增 3 个失败测试后以只读 Mapping 深冻结，并补齐预算预检上下文。
+- 2026-08-26：修复后采样专项 16/16、全量 102/102、`compileall`、`uv lock --check` 和 `git diff --check` 通过。
 
 ## 12. 结果
 
 - 报告：`docs/notes/idfgenx/reports/2026-08-26-IDFGX-M1-005-Deterministic-Sampling.md`
-- Commit：`9d71ab4`、`3cdcfce`、`5304189`；闭环文档由后续同任务提交承载。
+- Commit：`9d71ab4`、`3cdcfce`、`5304189`、`5f66911`；审查修复由后续同任务提交承载。
 - PR：未创建；未修改远端资源。
