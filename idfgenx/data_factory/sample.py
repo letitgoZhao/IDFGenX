@@ -9,13 +9,24 @@ from __future__ import annotations
 import json
 from enum import StrEnum
 from hashlib import sha256
-from math import isclose
+from itertools import product
+from math import ceil, floor, isclose, log2
 from pathlib import Path
-from typing import Literal
+from typing import Literal, cast
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+import numpy as np
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
+from scipy.stats import qmc
 
+from idfgenx.data_factory.scenarios import (
+    ScenarioBucket,
+    ScenarioCatalog,
+    scenario_catalog_sha256,
+    validate_bucket_assignment,
+)
 from idfgenx.errors import ConfigurationError
+from idfgenx.schemas.resolved import ResolvedScenarioSpec
+from idfgenx.schemas.scenario import BuildingUse, ZoneLayout
 
 
 CONTINUOUS_FIELDS = (
@@ -35,6 +46,13 @@ class SamplingEngine(StrEnum):
 
     LATIN_HYPERCUBE = "latin_hypercube"
     SOBOL = "sobol"
+
+
+class SamplingDistribution(StrEnum):
+    """区分现实训练分布与隔离的 Hard/OOD 评估分布。"""
+
+    REALISTIC = "realistic"
+    HARD_OOD = "hard_ood"
 
 
 class SamplingConfig(BaseModel):
@@ -126,3 +144,375 @@ def sampling_config_sha256(config: SamplingConfig) -> str:
         separators=(",", ":"),
     )
     return sha256(payload.encode("utf-8")).hexdigest()
+
+
+class SamplingRecord(BaseModel):
+    """保存一个已接受场景及其完整采样追溯信息。
+
+    Attributes:
+        sample_index: 当前返回批次中从零开始的稳定序号。
+        bucket_id: 产生该场景的冻结桶 ID。
+        engine: 连续字段使用的 QMC 引擎。
+        distribution: 现实训练分布或 Hard/OOD 评估分布。
+        seed: 当前单桶请求实际使用的 32 位随机种子。
+        attempt_count: 接受该记录时已检查的累计候选数。
+        rejection_counts: 接受该记录时各稳定原因的累计拒绝次数快照。
+        scenario_catalog_sha256: 场景目录规范哈希。
+        sampling_config_sha256: 采样策略规范哈希。
+        spec: 可直接输入 Compiler 的完整 SI 场景事实。
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    sample_index: int = Field(ge=0)
+    bucket_id: str
+    engine: SamplingEngine
+    distribution: SamplingDistribution
+    seed: int = Field(ge=0, le=2**32 - 1)
+    attempt_count: int = Field(ge=1)
+    rejection_counts: dict[str, int]
+    scenario_catalog_sha256: str = Field(min_length=64, max_length=64)
+    sampling_config_sha256: str = Field(min_length=64, max_length=64)
+    spec: ResolvedScenarioSpec
+
+
+def sample_bucket(
+    catalog: ScenarioCatalog,
+    config: SamplingConfig,
+    bucket_id: str,
+    count: int,
+    *,
+    seed: int,
+    engine: SamplingEngine | None = None,
+) -> tuple[SamplingRecord, ...]:
+    """从单个场景桶确定性生成完整工程场景。
+
+    连续字段由固定大小的 QMC 候选池产生；离散字段遍历经局部 RNG 排列的
+    合法笛卡尔积。候选即使被拒绝也会消耗对应离散组合，防止根据验证结果
+    选择性重排类别。
+
+    Args:
+        catalog: 已验证的 v0.1 场景桶目录。
+        config: 已验证的 v0.1 采样策略。
+        bucket_id: 要采样的稳定场景桶 ID。
+        count: 必须完整返回的正整数记录数。
+        seed: 范围为 ``[0, 2**32 - 1]`` 的局部随机种子。
+        engine: 连续采样引擎；省略时使用配置默认值。
+
+    Returns:
+        按接受顺序排列的不可变采样记录。
+
+    Raises:
+        ConfigurationError: 请求、版本、桶或候选资源无效，或候选池不足。
+    """
+
+    _validate_sampling_request(catalog, config, bucket_id, count, seed)
+    bucket = catalog.bucket(bucket_id)
+    selected_engine = _coerce_engine(engine or config.default_engine)
+    candidate_count = _candidate_count(config, count, selected_engine)
+    continuous_candidates = _continuous_candidates(
+        bucket,
+        config,
+        candidate_count,
+        seed,
+        selected_engine,
+    )
+    discrete_combinations = _discrete_combinations(bucket, seed)
+    rejection_counts: dict[str, int] = {}
+    accepted: list[SamplingRecord] = []
+    catalog_hash = scenario_catalog_sha256(catalog)
+    config_hash = sampling_config_sha256(config)
+    distribution = (
+        SamplingDistribution.REALISTIC
+        if bucket.training_eligible
+        else SamplingDistribution.HARD_OOD
+    )
+
+    for candidate_index, continuous in enumerate(continuous_candidates):
+        discrete = discrete_combinations[candidate_index % len(discrete_combinations)]
+        spec, rejection_reason = _build_candidate_spec(
+            bucket,
+            continuous,
+            discrete,
+            seed=seed,
+            sample_index=len(accepted),
+        )
+        if rejection_reason is not None:
+            rejection_counts[rejection_reason] = (
+                rejection_counts.get(rejection_reason, 0) + 1
+            )
+            continue
+        spec = cast(ResolvedScenarioSpec, spec)
+        try:
+            validate_bucket_assignment(spec, bucket)
+        except ValueError:
+            rejection_counts["bucket_assignment"] = (
+                rejection_counts.get("bucket_assignment", 0) + 1
+            )
+            continue
+        accepted.append(
+            SamplingRecord(
+                sample_index=len(accepted),
+                bucket_id=bucket.id,
+                engine=selected_engine,
+                distribution=distribution,
+                seed=seed,
+                attempt_count=candidate_index + 1,
+                rejection_counts=dict(rejection_counts),
+                scenario_catalog_sha256=catalog_hash,
+                sampling_config_sha256=config_hash,
+                spec=spec,
+            )
+        )
+        if len(accepted) == count:
+            return tuple(accepted)
+
+    raise ConfigurationError(
+        "候选池不足，无法完整生成请求的场景数量。",
+        context={
+            "bucket_id": bucket_id,
+            "requested_count": count,
+            "seed": seed,
+            "engine": selected_engine.value,
+            "attempt_count": candidate_count,
+            "accepted_count": len(accepted),
+            "rejection_counts": rejection_counts,
+        },
+    )
+
+
+def _validate_sampling_request(
+    catalog: ScenarioCatalog,
+    config: SamplingConfig,
+    bucket_id: str,
+    count: int,
+    seed: int,
+) -> None:
+    """在分配候选池前拒绝类型、范围和配置版本错误。
+
+    Args:
+        catalog: 场景目录。
+        config: 采样策略。
+        bucket_id: 请求桶 ID。
+        count: 请求数量。
+        seed: 请求 seed。
+
+    Raises:
+        ConfigurationError: 任一请求字段不满足稳定运行边界。
+    """
+
+    context = {"bucket_id": bucket_id, "count": count, "seed": seed}
+    if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
+        raise ConfigurationError("采样数量必须为正整数。", context=context)
+    if (
+        not isinstance(seed, int)
+        or isinstance(seed, bool)
+        or seed < 0
+        or seed > 2**32 - 1
+    ):
+        raise ConfigurationError("采样 seed 必须是有效的 32 位无符号整数。", context=context)
+    if catalog.config_version != config.scenario_catalog_version:
+        raise ConfigurationError(
+            "采样策略与场景目录版本不匹配。",
+            context={
+                **context,
+                "catalog_version": catalog.config_version,
+                "expected_catalog_version": config.scenario_catalog_version,
+            },
+        )
+    catalog.bucket(bucket_id)
+
+
+def _coerce_engine(engine: SamplingEngine | str) -> SamplingEngine:
+    """把调用方输入归一为受支持引擎并稳定归类错误。
+
+    Args:
+        engine: 枚举或等价字符串。
+
+    Returns:
+        受支持的采样引擎枚举。
+
+    Raises:
+        ConfigurationError: 引擎名称不属于 v0.1 契约。
+    """
+
+    try:
+        return SamplingEngine(engine)
+    except ValueError as error:
+        raise ConfigurationError(
+            "未知连续采样引擎。",
+            context={"engine": str(engine)},
+            cause=error,
+        ) from error
+
+
+def _candidate_count(
+    config: SamplingConfig,
+    requested_count: int,
+    engine: SamplingEngine,
+) -> int:
+    """计算固定候选池大小，并在分配前执行资源上限。
+
+    Sobol 必须一次使用 ``random_base2`` 生成二次幂长度；LHS 保留配置倍率的
+    精确长度。两者均不得静默截断为最大候选数，否则会返回不可预测的部分批次。
+    """
+
+    required = requested_count * config.candidate_multiplier
+    candidate_count = (
+        1 << ceil(log2(required)) if engine is SamplingEngine.SOBOL else required
+    )
+    if candidate_count > config.maximum_candidate_count:
+        raise ConfigurationError(
+            "请求超过单次采样候选资源上限。",
+            context={
+                "requested_count": requested_count,
+                "candidate_count": candidate_count,
+                "maximum_candidate_count": config.maximum_candidate_count,
+                "engine": engine.value,
+            },
+        )
+    return candidate_count
+
+
+def _continuous_candidates(
+    bucket: ScenarioBucket,
+    config: SamplingConfig,
+    candidate_count: int,
+    seed: int,
+    engine: SamplingEngine,
+) -> np.ndarray:
+    """生成并按桶闭区间缩放六维 QMC 连续候选。
+
+    Args:
+        bucket: 提供各连续字段范围的目标桶。
+        config: 提供字段顺序和舍入精度的采样策略。
+        candidate_count: 已通过资源校验的候选数。
+        seed: 当前请求的局部 seed。
+        engine: LHS 或 Sobol。
+
+    Returns:
+        形状为 ``(candidate_count, 6)`` 的浮点数组。
+    """
+
+    dimension = len(config.continuous_fields)
+    if engine is SamplingEngine.SOBOL:
+        sampler = qmc.Sobol(d=dimension, scramble=True, seed=seed)
+        unit_points = sampler.random_base2(m=int(log2(candidate_count)))
+    else:
+        sampler = qmc.LatinHypercube(d=dimension, scramble=True, seed=seed)
+        unit_points = sampler.random(n=candidate_count)
+    lower = np.asarray(
+        [bucket.ranges[field][0] for field in config.continuous_fields],
+        dtype=float,
+    )
+    upper = np.asarray(
+        [bucket.ranges[field][1] for field in config.continuous_fields],
+        dtype=float,
+    )
+    # 手工线性缩放允许受控测试使用零宽范围；结果再次夹取，避免舍入越界。
+    scaled = lower + unit_points * (upper - lower)
+    rounded = np.round(scaled, decimals=config.continuous_precision)
+    return np.clip(rounded, lower, upper)
+
+
+def _discrete_combinations(
+    bucket: ScenarioBucket,
+    seed: int,
+) -> tuple[tuple[int, str, str], ...]:
+    """构造并确定性排列目标桶允许的完整离散笛卡尔积。
+
+    Args:
+        bucket: 提供层数范围、布局和用途的目标桶。
+        seed: 当前单桶请求 seed。
+
+    Returns:
+        ``(stories, zone_layout, building_use)`` 组合元组。
+
+    Raises:
+        ConfigurationError: 层数范围内不存在整数或离散允许集为空。
+    """
+
+    stories_low, stories_high = bucket.ranges["stories"]
+    stories = tuple(range(ceil(stories_low), floor(stories_high) + 1))
+    combinations = tuple(product(stories, bucket.layouts, bucket.uses))
+    if not combinations:
+        raise ConfigurationError(
+            "场景桶没有可采样的离散组合。",
+            context={"bucket_id": bucket.id},
+        )
+    local_seed = _derive_seed(seed, bucket.id, "discrete")
+    order = np.random.default_rng(local_seed).permutation(len(combinations))
+    return tuple(combinations[int(index)] for index in order)
+
+
+def _derive_seed(seed: int, *parts: str) -> int:
+    """使用稳定 SHA-256 派生与 Python hash 随机化无关的子 seed。"""
+
+    payload = "\x1f".join((str(seed), *parts)).encode("utf-8")
+    return int.from_bytes(sha256(payload).digest()[:4], byteorder="big")
+
+
+def _build_candidate_spec(
+    bucket: ScenarioBucket,
+    continuous: np.ndarray,
+    discrete: tuple[int, str, str],
+    *,
+    seed: int,
+    sample_index: int,
+) -> tuple[ResolvedScenarioSpec | None, str | None]:
+    """把连续点和离散层合并为场景，并返回稳定拒绝原因。
+
+    Args:
+        bucket: 当前目标桶。
+        continuous: 按固定维度排列的六个工程连续值。
+        discrete: 层数、布局和用途组合。
+        seed: 当前单桶 seed，用于稳定建筑名。
+        sample_index: 当前已接受记录数。
+
+    Returns:
+        成功时返回 ``(spec, None)``；失败时返回 ``(None, reason)``。
+    """
+
+    (
+        length_m,
+        width_m,
+        floor_to_floor_height_m,
+        window_to_wall_ratio,
+        heating_setpoint_c,
+        cooling_setpoint_c,
+    ) = (float(value) for value in continuous)
+    stories, layout_value, use_value = discrete
+    minimum_ratio, maximum_ratio = (
+        (0.2, 5.0) if bucket.complexity == "hard_ood" else (0.4, 2.5)
+    )
+    ratio = length_m / width_m
+    if ratio < minimum_ratio or ratio > maximum_ratio:
+        return None, "aspect_ratio"
+    if heating_setpoint_c >= cooling_setpoint_c:
+        return None, "setpoint_order"
+    layout = ZoneLayout(layout_value)
+    if layout is ZoneLayout.PERIMETER_CORE and min(length_m, width_m) < 12.0:
+        return None, "perimeter_core_minimum"
+    try:
+        spec = ResolvedScenarioSpec(
+            building_name=(
+                f"IDFGenX-{bucket.id}-{seed:010d}-{sample_index:06d}"
+            ),
+            length_m=length_m,
+            width_m=width_m,
+            floor_to_floor_height_m=floor_to_floor_height_m,
+            stories=stories,
+            zone_layout=layout,
+            perimeter_depth_m=(
+                min(length_m, width_m) / 4.0
+                if layout is ZoneLayout.PERIMETER_CORE
+                else None
+            ),
+            window_to_wall_ratio=window_to_wall_ratio,
+            heating_setpoint_c=heating_setpoint_c,
+            cooling_setpoint_c=cooling_setpoint_c,
+            building_use=BuildingUse(use_value),
+        )
+    except (ValidationError, ValueError):
+        return None, "resolved_schema"
+    return spec, None

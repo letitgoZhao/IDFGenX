@@ -109,7 +109,7 @@ git commit -m "feat(data): add versioned sampling policy"
 - Consumes: `ScenarioCatalog`, `SamplingConfig`, `ScenarioBucket`, SciPy QMC engines
 - Produces: `SamplingDistribution`, `SamplingRecord`, `sample_bucket(...) -> tuple[SamplingRecord, ...]`
 
-- [ ] **Step 1: Write failing behavior tests**
+- [x] **Step 1: Write failing behavior tests**
 
 Add tests whose expected values are independently checked:
 
@@ -142,27 +142,27 @@ def test_sampling_does_not_advance_numpy_global_rng(self) -> None:
 Also test positive count/seed validation, discrete balance on a controlled no-rejection bucket, stable names, metadata hashes, and candidate exhaustion context.
 Add a catalog-version mismatch test here because `sample_bucket` is the first interface that consumes both versioned configurations.
 
-- [ ] **Step 2: Run the focused class and verify RED**
+- [x] **Step 2: Run the focused class and verify RED**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.BucketSamplingTests -v`
 
 Expected: failure because `sample_bucket` and record models are missing.
 
-- [ ] **Step 3: Implement fixed candidate pools and discrete strata**
+- [x] **Step 3: Implement fixed candidate pools and discrete strata**
 
 Implement private typed helpers for request validation, candidate count, QMC generation/scaling, discrete Cartesian products, stable rejection classification, `ResolvedScenarioSpec` construction and `SamplingRecord` creation. Use `qmc.LatinHypercube.random(n)` for LHS and `qmc.Sobol.random_base2(m)` for Sobol. Reject invalid candidates without changing dimensions or repairing values.
 
-- [ ] **Step 4: Run focused tests and verify GREEN**
+- [x] **Step 4: Run focused tests and verify GREEN**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.BucketSamplingTests -v`
 
 Expected: all single-bucket tests pass with no warnings.
 
-- [ ] **Step 5: Refactor while green**
+- [x] **Step 5: Refactor while green**
 
 Keep `sample_bucket` orchestration short; extract candidate generation, discrete strata and rejection gates only where each helper has a single business responsibility. Re-run the focused class after refactoring.
 
-- [ ] **Step 6: Commit the bucket sampler**
+- [x] **Step 6: Commit the bucket sampler**
 
 ```text
 git add idfgenx/data_factory/sample.py tests/unit/data_factory/test_sample.py
