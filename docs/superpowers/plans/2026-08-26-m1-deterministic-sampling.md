@@ -249,7 +249,7 @@ git commit -m "feat(data): allocate training and hard ood samples"
 - Consumes: completed code, tests, dependency lock and Git diff
 - Produces: verified task closure and next-task status
 
-- [ ] **Step 1: Run fresh full verification**
+- [x] **Step 1: Run fresh full verification**
 
 ```text
 .\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample -v
@@ -261,21 +261,21 @@ git diff --check
 
 Expected: every command exits 0; record exact test counts and elapsed time.
 
-- [ ] **Step 2: Audit requirements and generated files**
+- [x] **Step 2: Audit requirements and generated files**
 
 Review the design section by section, inspect `git diff --stat`, `git diff`, and `git status --short`, verify only intended files changed, and confirm no `.env`, cache, dataset, model, EnergyPlus installation or runtime artifact is staged.
 
-- [ ] **Step 3: Write report and update status**
+- [x] **Step 3: Write report and update status**
 
 Report actual outputs, incomplete items, risks, follow-up and commits. Mark M1-005 `done`, update `MASTER_PLAN.md`, remove stale Ready entries from `STATUS.md`, and identify M1-007 as the next Prompt task.
 
-- [ ] **Step 4: Re-run documentation-sensitive checks**
+- [x] **Step 4: Re-run documentation-sensitive checks**
 
 Run: `git diff --check && git status --short`
 
 Expected: diff check exits 0 and status lists only intended task files.
 
-- [ ] **Step 5: Commit closeout**
+- [x] **Step 5: Commit closeout**
 
 ```text
 git add -f docs/notes/idfgenx/tasks/IDFGX-M1-005-确定性采样.md docs/notes/idfgenx/reports/2026-08-26-IDFGX-M1-005-Deterministic-Sampling.md docs/notes/idfgenx/MASTER_PLAN.md docs/notes/idfgenx/STATUS.md

@@ -1,5 +1,7 @@
 # IDFGenX AI 实施总计划
 
+> 2026-08-26 更新：`IDFGX-M1-005` 已完成确定性离散分层与 LHS/Sobol 连续采样；训练目录精确执行 40% simple / 60% complex 配额并排除 C5，显式 C5 均通过动态训练包络 Hard/OOD 门禁。下一项为 `IDFGX-M1-007` 中英文 clean Prompt 模板。
+
 > 2026-08-26 更新：`IDFGX-M0-017` 已按当前范围完成 Windows 代表样本可复现性验证：single/perimeter_core 的独立双次运行均通过 V0–V6，canonical epJSON、normalized IDF 哈希与阶段结论一致。Linux 与跨平台验证不在本任务范围；M0 下一出口转为 M1-004/M1-006。
 
 > 2026-08-25 更新：`IDFGX-M0-015` 已完成，100 个 Compiler Golden 全部通过；M0 下一项为 `IDFGX-M0-016`（Round-trip、metamorphic 与 mutation 测试）。
@@ -71,7 +73,7 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 | IDFGX-M1-002 | 分类官方 IDF 对象、几何、HVAC 和可复用角色 | M1-001 | 778 条可检索 inventory | done |
 | IDFGX-M1-003 | 人工审核核心种子、几何参考、模板和 allowlist | M1-002 | 12/20/25/11 精选名单 | done |
 | IDFGX-M1-004 | 冻结 S1–S5/C1–C5 场景桶和约束 | M0-002 | data config v0.1 | done |
-| IDFGX-M1-005 | 实现离散分层与 LHS/Sobol 连续采样 | M1-004/M0-003 | deterministic sampler | proposed |
+| IDFGX-M1-005 | 实现离散分层与 LHS/Sobol 连续采样 | M1-004/M0-003 | deterministic sampler | done |
 | IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | done |
 | IDFGX-M1-007 | 实现中英文 clean Prompt 模板 | M1-006 | prompt config v0.1 | proposed |
 | IDFGX-M1-008 | 实现单位、语序、专家表达和受控噪声 | M1-007 | robust prompt families | proposed |

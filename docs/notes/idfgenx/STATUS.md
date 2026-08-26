@@ -1,5 +1,7 @@
 # IDFGenX AI 开发当前状态
 
+> 2026-08-26：`IDFGX-M1-005` 已完成。新增版本化采样策略、SciPy LHS/Sobol 连续采样、离散组合分层、稳定子 seed、拒绝统计和追溯哈希；训练批次精确执行 40%/60% 配额并排除 C5，显式 C5 必须真实位于动态训练包络外。采样专项 13/13、全量 99/99 测试通过；下一项为 M1-007。
+
 > 2026-08-26：`IDFGX-M0-017` 已按当前范围完成 Windows 代表样本可复现性验证。single/perimeter_core 均在独立工作目录的两次 Compiler 运行中通过 V0–V6，canonical epJSON、normalized IDF 哈希和阶段结论一致。Linux 与跨平台验证明确不在本任务范围，未作完成声明；下一项为 M1-004/M1-006。
 
 > 2026-08-26：`IDFGX-M1-004` 已完成。S1–S5/C1–C5 场景桶、参数范围、训练资格与组合约束已冻结；C5 仅评估，unsupported feature 不进入正向 SFT。下一项为 M1-006 与 M1-005。
@@ -14,20 +16,20 @@
 
 ## 当前阶段
 
-Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。Compiler 从受控 ScenarioSpec 生成 EnergyPlus v23.1 可转换 IDF；100 Golden、V0–V6、稳定性和代表样本重复性均已有独立证据。下一阶段进入 M1 数据配置与 Prompt 契约。
+Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。M1 已冻结场景桶、DisclosurePlan 和确定性采样器；采样输出可追溯到场景配置、采样配置、QMC 引擎和 seed。下一阶段实现 clean Prompt 模板与 Canonical Sample。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | 无 | M0 Windows Compiler 可复现性验证已结束 | 启动 M1-004 或 M1-006 |
+| 无 | 无 | M1-005 确定性采样已结束 | 启动 M1-007 |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-M1-004 | 冻结场景桶和约束 | M0-002 完成 |
-| IDFGX-M1-006 | DisclosurePlan | M0-001/002 完成 |
+| IDFGX-M1-007 | 中英文 clean Prompt 模板 | M1-006 完成 |
+| IDFGX-M1-010 | Canonical Sample 与内容哈希对象存储 | M0-013 完成 |
 
 ## 当前阻塞
 
@@ -42,6 +44,9 @@ Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭�
 
 ## 最近完成
 
+- `IDFGX-M1-005`：完成离散分层与 LHS/Sobol 连续采样，训练配额、C5 隔离、确定性和失败边界均有测试；专项 13/13、全量 99/99 通过；
+- `IDFGX-M1-006`：新增 DisclosurePlan 和诚实 Draft 派生规则，默认字段不伪装为用户请求；
+- `IDFGX-M1-004`：冻结 S1–S5/C1–C5 场景桶、训练资格、参数范围和组合约束；
 - `IDFGX-M0-004 至 M0-012`：完成 v23.1 工具链、几何、窗洞、模板、canonical epJSON 与真实 IDF 转换；48/48 测试通过；
 - `IDFGX-M0-003`：完成 Draft 到 SI-only ResolvedScenarioSpec 的确定性 Resolver；单位、默认值、派生值和失败边界均有测试；
 - `IDFGX-M0-001`：冻结 Pydantic ScenarioSpecDraft v0.1，保留原始单位和字段状态；31/31 单测通过；

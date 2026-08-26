@@ -121,6 +121,7 @@ class BucketSamplingTests(unittest.TestCase):
         self.assertEqual(len(records), 16)
         for index, record in enumerate(records):
             self.assertEqual(record.sample_index, index)
+            self.assertGreaterEqual(record.attempt_count, index + 1)
             self.assertEqual(record.bucket_id, "C2")
             self.assertEqual(
                 record.spec.building_name,
@@ -203,6 +204,25 @@ class BucketSamplingTests(unittest.TestCase):
                 with self.assertRaises(ConfigurationError) as captured:
                     sample_bucket(self.catalog, config, "S1", count, seed=seed)
                 self.assertTrue(captured.exception.context)
+
+    def test_rejects_unknown_bucket_and_engine_with_context(self) -> None:
+        """未知桶或引擎若泄漏原始异常，会破坏数据构建器的稳定错误分类。"""
+
+        _, _, sample_bucket = self._load_api()
+        with self.assertRaises(ConfigurationError) as unknown_bucket:
+            sample_bucket(self.catalog, self.config, "UNKNOWN", 1, seed=1)
+        self.assertEqual(unknown_bucket.exception.context["bucket_id"], "UNKNOWN")
+
+        with self.assertRaises(ConfigurationError) as unknown_engine:
+            sample_bucket(
+                self.catalog,
+                self.config,
+                "S1",
+                1,
+                seed=1,
+                engine="halton",  # type: ignore[arg-type]
+            )
+        self.assertEqual(unknown_engine.exception.context["engine"], "halton")
 
     def test_reports_rejections_when_no_candidate_can_pass_domain_gates(self) -> None:
         """候选耗尽时返回部分批次会掩盖桶范围与组合门禁的冲突。"""
