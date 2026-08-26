@@ -1,0 +1,25 @@
+{
+  "config_version": "0.1",
+  "scenario_catalog_version": "0.1",
+  "default_engine": "latin_hypercube",
+  "continuous_fields": [
+    "length_m",
+    "width_m",
+    "floor_to_floor_height_m",
+    "window_to_wall_ratio",
+    "heating_setpoint_c",
+    "cooling_setpoint_c"
+  ],
+  "discrete_fields": [
+    "stories",
+    "zone_layout",
+    "building_use"
+  ],
+  "training_complexity_shares": {
+    "simple": 0.4,
+    "complex": 0.6
+  },
+  "continuous_precision": 6,
+  "candidate_multiplier": 8,
+  "maximum_candidate_count": 65536
+}

@@ -34,7 +34,7 @@
 - Consumes: `ScenarioCatalog.config_version: str`
 - Produces: `SamplingEngine`, `SamplingConfig`, `load_sampling_config(Path)`, `sampling_config_sha256(SamplingConfig)`
 
-- [ ] **Step 1: Write failing configuration tests**
+- [x] **Step 1: Write failing configuration tests**
 
 ```python
 class SamplingConfigTests(unittest.TestCase):
@@ -54,13 +54,13 @@ class SamplingConfigTests(unittest.TestCase):
                 load_sampling_config(invalid)
 ```
 
-- [ ] **Step 2: Run the focused test and verify RED**
+- [x] **Step 2: Run the focused test and verify RED**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.SamplingConfigTests -v`
 
 Expected: import failure because `idfgenx.data_factory.sample` does not exist.
 
-- [ ] **Step 3: Add exact dependencies and lock them**
+- [x] **Step 3: Add exact dependencies and lock them**
 
 Add to `pyproject.toml`:
 
@@ -71,7 +71,7 @@ Add to `pyproject.toml`:
 
 Run: `C:\Users\LEGION\.local\bin\uv.exe lock && C:\Users\LEGION\.local\bin\uv.exe sync --locked`
 
-- [ ] **Step 4: Add the policy JSON and minimal immutable config models**
+- [x] **Step 4: Add the policy JSON and minimal immutable config models**
 
 Implement the JSON fields exactly as specified in the design. In `sample.py`, define frozen Pydantic models, validate field sets/shares/resource limits, wrap I/O or Pydantic failures in `ConfigurationError`, and hash canonical JSON:
 
@@ -86,13 +86,13 @@ def sampling_config_sha256(config: SamplingConfig) -> str:
     return sha256(payload.encode("utf-8")).hexdigest()
 ```
 
-- [ ] **Step 5: Run tests and verify GREEN**
+- [x] **Step 5: Run tests and verify GREEN**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.SamplingConfigTests -v`
 
 Expected: both configuration tests pass.
 
-- [ ] **Step 6: Commit the configuration slice**
+- [x] **Step 6: Commit the configuration slice**
 
 ```text
 git add pyproject.toml uv.lock configs/data/sampling_v0_1.json idfgenx/data_factory/sample.py tests/unit/data_factory/test_sample.py
