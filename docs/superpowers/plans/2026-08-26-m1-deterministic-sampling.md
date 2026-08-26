@@ -179,7 +179,7 @@ git commit -m "feat(data): sample scenario buckets with qmc"
 - Consumes: `sample_bucket`, catalog training/evaluation bucket lists, root seed
 - Produces: `sample_training_catalog(...) -> tuple[SamplingRecord, ...]`
 
-- [ ] **Step 1: Write failing allocation and isolation tests**
+- [x] **Step 1: Write failing allocation and isolation tests**
 
 ```python
 def test_training_catalog_is_exactly_forty_sixty_and_excludes_c5(self) -> None:
@@ -208,29 +208,29 @@ def test_explicit_c5_records_are_outside_training_envelope(self) -> None:
 
 Also test exact requested count, equal-within-group allocation difference at most one, deterministic child seeds/order, and `count=1` behavior.
 
-- [ ] **Step 2: Run tests and verify RED**
+- [x] **Step 2: Run tests and verify RED**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.TrainingSamplingTests -v`
 
 Expected: failure because training allocation and C5 OOD filtering are missing.
 
-- [ ] **Step 3: Implement training allocation and C5 gate**
+- [x] **Step 3: Implement training allocation and C5 gate**
 
 Derive child seeds using SHA-256 over root seed, bucket ID and engine. Allocate `floor(count * 0.4)` to simple and the remainder to complex, distribute within sorted groups from a seed-derived rotation, call `sample_bucket`, deterministically merge, and reindex records. Compute the C5 training envelope from training buckets and reject C5 candidates wholly inside it.
 
-- [ ] **Step 4: Run tests and verify GREEN**
+- [x] **Step 4: Run tests and verify GREEN**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample.TrainingSamplingTests -v`
 
 Expected: all training/C5 tests pass.
 
-- [ ] **Step 5: Run the entire sampler test module**
+- [x] **Step 5: Run the entire sampler test module**
 
 Run: `.\.venv\Scripts\python.exe -m unittest tests.unit.data_factory.test_sample -v`
 
 Expected: all M1-005 tests pass with no errors or warnings.
 
-- [ ] **Step 6: Commit the training/C5 slice**
+- [x] **Step 6: Commit the training/C5 slice**
 
 ```text
 git add idfgenx/data_factory/sample.py tests/unit/data_factory/test_sample.py

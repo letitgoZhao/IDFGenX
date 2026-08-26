@@ -250,6 +250,13 @@ def sample_bucket(
                 rejection_counts.get("bucket_assignment", 0) + 1
             )
             continue
+        if (
+            bucket.id in catalog.evaluation_only_bucket_ids
+            and not _is_outside_training_envelope(spec, catalog)
+        ):
+            reason = "c5_not_outside_training_envelope"
+            rejection_counts[reason] = rejection_counts.get(reason, 0) + 1
+            continue
         accepted.append(
             SamplingRecord(
                 sample_index=len(accepted),
@@ -278,6 +285,227 @@ def sample_bucket(
             "accepted_count": len(accepted),
             "rejection_counts": rejection_counts,
         },
+    )
+
+
+def sample_training_catalog(
+    catalog: ScenarioCatalog,
+    config: SamplingConfig,
+    count: int,
+    *,
+    seed: int,
+    engine: SamplingEngine | None = None,
+) -> tuple[SamplingRecord, ...]:
+    """按冻结配额从全部训练桶生成确定性建筑事实批次。
+
+    simple 数量取 ``floor(count * share)``，complex 获得余数。组内配额保持
+    最大差不超过 1，余数起点和每桶子 seed 均由根 seed 稳定派生；C5 等评估
+    专用桶不会被读取。
+
+    Args:
+        catalog: 已验证的 v0.1 场景桶目录。
+        config: 已验证的 v0.1 采样策略。
+        count: 必须完整返回的训练记录总数。
+        seed: 范围为 ``[0, 2**32 - 1]`` 的根 seed。
+        engine: 连续采样引擎；省略时使用配置默认值。
+
+    Returns:
+        确定性合并并重新编号的不可变训练采样记录。
+
+    Raises:
+        ConfigurationError: 请求、配置、训练桶或任一子采样失败。
+    """
+
+    _validate_training_request(catalog, config, count, seed)
+    selected_engine = _coerce_engine(engine or config.default_engine)
+    training_buckets = tuple(
+        catalog.bucket(bucket_id) for bucket_id in catalog.training_bucket_ids
+    )
+    grouped_ids = {
+        complexity: tuple(
+            sorted(
+                bucket.id
+                for bucket in training_buckets
+                if bucket.complexity == complexity
+            )
+        )
+        for complexity in TRAINING_COMPLEXITIES
+    }
+    simple_count = floor(
+        count * config.training_complexity_shares["simple"]
+    )
+    group_totals = {"simple": simple_count, "complex": count - simple_count}
+    bucket_counts: dict[str, int] = {}
+    for complexity in ("simple", "complex"):
+        bucket_counts.update(
+            _allocate_group_counts(
+                grouped_ids[complexity],
+                group_totals[complexity],
+                seed,
+                complexity,
+            )
+        )
+
+    records: list[SamplingRecord] = []
+    for bucket_id in sorted(bucket_counts):
+        bucket_count = bucket_counts[bucket_id]
+        if bucket_count == 0:
+            continue
+        child_seed = _derive_seed(seed, bucket_id, selected_engine.value)
+        records.extend(
+            sample_bucket(
+                catalog,
+                config,
+                bucket_id,
+                bucket_count,
+                seed=child_seed,
+                engine=selected_engine,
+            )
+        )
+    merge_seed = _derive_seed(seed, "training", "merge", selected_engine.value)
+    order = np.random.default_rng(merge_seed).permutation(len(records))
+    return tuple(
+        records[int(source_index)].model_copy(update={"sample_index": output_index})
+        for output_index, source_index in enumerate(order)
+    )
+
+
+def _validate_training_request(
+    catalog: ScenarioCatalog,
+    config: SamplingConfig,
+    count: int,
+    seed: int,
+) -> None:
+    """在分配训练配额前确认请求、版本与桶资格完整有效。
+
+    Args:
+        catalog: 场景目录。
+        config: 采样策略。
+        count: 请求训练记录数。
+        seed: 根 seed。
+
+    Raises:
+        ConfigurationError: 请求或训练桶目录违反 v0.1 契约。
+    """
+
+    context = {"count": count, "seed": seed}
+    if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
+        raise ConfigurationError("采样数量必须为正整数。", context=context)
+    if (
+        not isinstance(seed, int)
+        or isinstance(seed, bool)
+        or seed < 0
+        or seed > 2**32 - 1
+    ):
+        raise ConfigurationError("采样 seed 必须是有效的 32 位无符号整数。", context=context)
+    if catalog.config_version != config.scenario_catalog_version:
+        raise ConfigurationError(
+            "采样策略与场景目录版本不匹配。",
+            context={
+                **context,
+                "catalog_version": catalog.config_version,
+                "expected_catalog_version": config.scenario_catalog_version,
+            },
+        )
+    training_buckets = tuple(
+        catalog.bucket(bucket_id) for bucket_id in catalog.training_bucket_ids
+    )
+    invalid = tuple(
+        bucket.id
+        for bucket in training_buckets
+        if not bucket.training_eligible
+        or bucket.complexity not in TRAINING_COMPLEXITIES
+    )
+    complexities = {bucket.complexity for bucket in training_buckets}
+    if invalid or complexities != TRAINING_COMPLEXITIES:
+        raise ConfigurationError(
+            "训练桶资格或复杂度分组无效。",
+            context={
+                **context,
+                "invalid_bucket_ids": invalid,
+                "complexities": sorted(complexities),
+            },
+        )
+
+
+def _allocate_group_counts(
+    bucket_ids: tuple[str, ...],
+    total: int,
+    seed: int,
+    complexity: str,
+) -> dict[str, int]:
+    """在一个复杂度组内均匀分配整数配额并稳定轮转余数。
+
+    Args:
+        bucket_ids: 已稳定排序的同复杂度训练桶 ID。
+        total: 该组应生成的记录总数。
+        seed: 训练请求根 seed。
+        complexity: 用于派生余数轮转起点的组名。
+
+    Returns:
+        覆盖组内每个桶的非负整数配额。
+
+    Raises:
+        ConfigurationError: 组需要样本却没有可用桶。
+    """
+
+    if not bucket_ids:
+        if total == 0:
+            return {}
+        raise ConfigurationError(
+            "训练复杂度组没有可用场景桶。",
+            context={"complexity": complexity, "requested_count": total},
+        )
+    quotient, remainder = divmod(total, len(bucket_ids))
+    allocation = {bucket_id: quotient for bucket_id in bucket_ids}
+    start = _derive_seed(seed, complexity, "allocation") % len(bucket_ids)
+    for offset in range(remainder):
+        bucket_id = bucket_ids[(start + offset) % len(bucket_ids)]
+        allocation[bucket_id] += 1
+    return allocation
+
+
+def _is_outside_training_envelope(
+    spec: ResolvedScenarioSpec,
+    catalog: ScenarioCatalog,
+) -> bool:
+    """判断评估场景是否至少一个字段位于全部训练桶包络外。
+
+    包络从配置动态计算而非复制 8–60 等常量，使场景目录范围变化时 C5 门禁
+    不会静默沿用旧边界。
+
+    Args:
+        spec: 已通过目标评估桶校验的候选场景。
+        catalog: 同时包含训练桶和评估桶的冻结目录。
+
+    Returns:
+        任一数值或离散字段超出训练桶并集时为 ``True``。
+    """
+
+    training_buckets = tuple(
+        catalog.bucket(bucket_id) for bucket_id in catalog.training_bucket_ids
+    )
+    numeric_values = {
+        "length_m": spec.length_m,
+        "width_m": spec.width_m,
+        "floor_to_floor_height_m": spec.floor_to_floor_height_m,
+        "stories": spec.stories,
+        "window_to_wall_ratio": spec.window_to_wall_ratio,
+        "heating_setpoint_c": spec.heating_setpoint_c,
+        "cooling_setpoint_c": spec.cooling_setpoint_c,
+    }
+    for field, value in numeric_values.items():
+        lower = min(bucket.ranges[field][0] for bucket in training_buckets)
+        upper = max(bucket.ranges[field][1] for bucket in training_buckets)
+        if value < lower or value > upper:
+            return True
+    training_layouts = {
+        layout for bucket in training_buckets for layout in bucket.layouts
+    }
+    training_uses = {use for bucket in training_buckets for use in bucket.uses}
+    return (
+        spec.zone_layout.value not in training_layouts
+        or spec.building_use.value not in training_uses
     )
 
 

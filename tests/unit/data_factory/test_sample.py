@@ -249,5 +249,106 @@ class BucketSamplingTests(unittest.TestCase):
         self.assertEqual(np.random.random(), expected)
 
 
+class TrainingSamplingTests(unittest.TestCase):
+    """验证训练配额、子 seed 和 C5 评估隔离。"""
+
+    def setUp(self) -> None:
+        """载入训练批次测试共享的冻结配置。"""
+
+        self.catalog = load_scenario_catalog(
+            Path("configs/data/scenario_buckets_v0_1.json")
+        )
+        self.config = load_sampling_config(Path("configs/data/sampling_v0_1.json"))
+
+    def _load_api(self) -> tuple[object, object, object]:
+        """延迟导入训练接口，使缺失实现表现为明确的断言失败。"""
+
+        try:
+            from idfgenx.data_factory.sample import (
+                SamplingDistribution,
+                sample_bucket,
+                sample_training_catalog,
+            )
+        except ImportError as error:
+            self.fail(f"M1-005 训练目录采样接口尚未实现: {error}")
+        return SamplingDistribution, sample_bucket, sample_training_catalog
+
+    def test_training_catalog_is_exactly_forty_sixty_and_excludes_c5(self) -> None:
+        """错误取整或读取评估桶会破坏训练独立建筑配额。"""
+
+        _, _, sample_training_catalog = self._load_api()
+        records = sample_training_catalog(
+            self.catalog,
+            self.config,
+            100,
+            seed=2026,
+        )
+        complexity_counts = Counter(
+            self.catalog.bucket(row.bucket_id).complexity for row in records
+        )
+
+        self.assertEqual(len(records), 100)
+        self.assertEqual(complexity_counts, {"simple": 40, "complex": 60})
+        self.assertNotIn("C5", {row.bucket_id for row in records})
+        self.assertEqual([row.sample_index for row in records], list(range(100)))
+
+    def test_allocation_is_balanced_within_groups_and_reproducible(self) -> None:
+        """固定偏向首桶或使用进程 hash 会让跨运行桶配额发生漂移。"""
+
+        _, _, sample_training_catalog = self._load_api()
+        first = sample_training_catalog(self.catalog, self.config, 103, seed=88)
+        repeated = sample_training_catalog(self.catalog, self.config, 103, seed=88)
+        bucket_counts = Counter(row.bucket_id for row in first)
+        simple_counts = [
+            bucket_counts[bucket_id]
+            for bucket_id in ("S1", "S2", "S3", "S4", "S5")
+        ]
+        complex_counts = [
+            bucket_counts[bucket_id]
+            for bucket_id in ("C1", "C2", "C3", "C4")
+        ]
+
+        self.assertEqual(first, repeated)
+        self.assertLessEqual(max(simple_counts) - min(simple_counts), 1)
+        self.assertLessEqual(max(complex_counts) - min(complex_counts), 1)
+        self.assertEqual(len({row.seed for row in first}), 9)
+
+    def test_one_record_follows_integer_quota_rule(self) -> None:
+        """小批次不得为了同时覆盖两组而篡改 floor 配额规则。"""
+
+        _, _, sample_training_catalog = self._load_api()
+        records = sample_training_catalog(self.catalog, self.config, 1, seed=3)
+
+        self.assertEqual(len(records), 1)
+        self.assertEqual(self.catalog.bucket(records[0].bucket_id).complexity, "complex")
+
+    def test_explicit_c5_records_are_outside_training_envelope(self) -> None:
+        """仅贴上 C5 标签但仍位于训练包络内不构成 Hard/OOD 样本。"""
+
+        SamplingDistribution, sample_bucket, _ = self._load_api()
+        records = sample_bucket(self.catalog, self.config, "C5", 20, seed=99)
+
+        self.assertEqual(len(records), 20)
+        for row in records:
+            values = row.spec
+            outside = (
+                values.length_m < 8
+                or values.length_m > 60
+                or values.width_m < 8
+                or values.width_m > 60
+                or values.floor_to_floor_height_m < 2.7
+                or values.floor_to_floor_height_m > 4.5
+                or values.window_to_wall_ratio < 0.2
+                or values.window_to_wall_ratio > 0.6
+                or values.heating_setpoint_c < 18
+                or values.heating_setpoint_c > 22
+                or values.cooling_setpoint_c < 24
+                or values.cooling_setpoint_c > 28
+                or values.stories > 6
+            )
+            self.assertTrue(outside)
+            self.assertEqual(row.distribution, SamplingDistribution.HARD_OOD)
+
+
 if __name__ == "__main__":
     unittest.main()
