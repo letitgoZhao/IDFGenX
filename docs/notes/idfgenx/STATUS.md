@@ -12,23 +12,26 @@
 
 > 2026-08-25：`IDFGX-M0-013/014` 已完成。独立 V0–V6 Validator、20 个 MVP Golden 与 EnergyPlus v23.1 设计日门禁均已验证；全量 76/76 测试通过。后续进入 M0-015（100 Golden 扩展）。
 
-> 更新时间：2026-08-26
+> 2026-08-28：`IDFGX-M1-007` 已完成。新增版本化中英文 clean Prompt 配置与四个确定性 family；Prompt 仅渲染诚实 Draft 的 requested 字段，配置/Draft 版本和哈希可追溯，特殊名称与空披露被门禁拒绝。Prompt 专项 13/13、全量 115/115 通过；下一项为 M1-008/M1-009。
+
+> 更新时间：2026-08-28
 
 ## 当前阶段
 
-Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。M1 已冻结场景桶、DisclosurePlan 和确定性采样器；采样输出可追溯到场景配置、采样配置、QMC 引擎和 seed。下一阶段实现 clean Prompt 模板与 Canonical Sample。
+Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。M1 已冻结场景桶、DisclosurePlan、确定性采样器和四类 clean Prompt；采样与 Prompt 输出均有版本及哈希追溯。下一阶段实现鲁棒 Prompt family、反向标定与 Canonical Sample。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | 无 | M1-005 确定性采样已结束 | 启动 M1-007 |
+| 无 | 无 | M1-007 clean Prompt 已结束 | 启动 M1-008 或 M1-009 |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-M1-007 | 中英文 clean Prompt 模板 | M1-006 完成 |
+| IDFGX-M1-008 | 单位、语序、专家表达和受控噪声 | M1-007 完成 |
+| IDFGX-M1-009 | Prompt 数值/单位/实体反向标定 | M1-007 完成 |
 | IDFGX-M1-010 | Canonical Sample 与内容哈希对象存储 | M0-013 完成 |
 
 ## 当前阻塞
@@ -44,6 +47,7 @@ Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭�
 
 ## 最近完成
 
+- `IDFGX-M1-007`：完成四类中英文 clean Prompt、诚实披露、配置哈希、版本追溯和歧义输入门禁；专项 13/13、全量 115/115 通过；
 - `IDFGX-M1-005`：完成离散分层与 LHS/Sobol 连续采样，训练配额、C5 隔离、深冻结审计字段、确定性和失败边界均有测试；专项 16/16、全量 102/102 通过；
 - `IDFGX-M1-006`：新增 DisclosurePlan 和诚实 Draft 派生规则，默认字段不伪装为用户请求；
 - `IDFGX-M1-004`：冻结 S1–S5/C1–C5 场景桶、训练资格、参数范围和组合约束；

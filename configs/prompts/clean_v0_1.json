@@ -1,0 +1,50 @@
+{
+  "config_version": "0.1",
+  "draft_schema_version": "0.1",
+  "families": [
+    {
+      "id": "zh_concise",
+      "language": "zh",
+      "style": "concise"
+    },
+    {
+      "id": "zh_expert",
+      "language": "zh",
+      "style": "expert"
+    },
+    {
+      "id": "en_concise",
+      "language": "en",
+      "style": "concise"
+    },
+    {
+      "id": "en_expert",
+      "language": "en",
+      "style": "expert"
+    }
+  ],
+  "field_order": [
+    "building_name",
+    "building_use",
+    "length",
+    "width",
+    "floor_to_floor_height",
+    "stories",
+    "zone_layout",
+    "window_to_wall_ratio",
+    "heating_setpoint",
+    "cooling_setpoint"
+  ],
+  "requested_fields": [
+    "building_name",
+    "building_use",
+    "length",
+    "width",
+    "floor_to_floor_height",
+    "stories",
+    "zone_layout",
+    "window_to_wall_ratio",
+    "heating_setpoint",
+    "cooling_setpoint"
+  ]
+}
