@@ -164,7 +164,7 @@
   docs(training): adopt local-to-cloud qwen roadmap
   ```
 
-- [ ] **Step 5: 推送并验证远端**
+- [x] **Step 5: 推送并验证远端**
 
   Run:
 

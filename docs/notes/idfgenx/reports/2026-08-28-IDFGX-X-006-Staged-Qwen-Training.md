@@ -3,10 +3,11 @@ report_id: 2026-08-28-IDFGX-X-006
 task_id: IDFGX-X-006
 status: completed
 started: 2026-08-28T14:09:27+08:00
-finished: 2026-08-28T14:38:22+08:00
+finished: 2026-08-28T14:54:54+08:00
 executor: Codex
 related_commits:
   - 7b1c1f6
+  - bb40bd3
 related_runs: []
 ---
 
@@ -54,7 +55,7 @@ Pilot/Scale。Qwen3-4B 保留为可选成本对照或资源回退，14B 及以�
 
 | 命令/检查 | 结果 | 备注 |
 | --- | --- | --- |
-| `uv run python -m unittest discover -s tests -v` | PASS | 提交前复验 115/115，57.364 秒；代码未变 |
+| `uv run python -m unittest discover -s tests -v` | PASS | 已提交树收尾复验 115/115，53.361 秒；代码未变 |
 | 11 个受影响文档必需术语扫描 | PASS | 每个文件均包含 0.6B、1.7B、8B 分层 |
 | 旧约束扫描 | PASS | 未发现仍生效的固定 4B/4090 主线表述 |
 | 占位符扫描 | PASS | 未发现 TBD、TODO、待定或实现占位符 |
@@ -92,5 +93,5 @@ Pilot/Scale。Qwen3-4B 保留为可选成本对照或资源回退，14B 及以�
 - ADR：`docs/notes/idfgenx/decisions/ADR-0002-staged-qwen-training.md`
 - Design：`docs/superpowers/specs/2026-08-28-staged-qwen-training-design.md`
 - Plan：`docs/superpowers/plans/2026-08-28-staged-qwen-training.md`
-- Commit/PR：`7b1c1f6`（设计）与本报告所在最终文档提交；未创建 PR
+- Commit/PR：`7b1c1f6`（设计）、`bb40bd3`（文档实施）与本报告所在收口提交；未创建 PR
 - Dataset/Model/Eval run：无
