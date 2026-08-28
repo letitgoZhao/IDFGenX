@@ -125,7 +125,7 @@ for item in items:
 - 生产主线固定为 `Prompt → ScenarioSpecDraft → Resolver → Compiler → IDF`；
 - Direct-All/Direct-Fragment 是隔离的论文基线；
 - 永久不实现真实 `AirLoopHVAC`、`PlantLoop` 和设备拓扑；
-- 训练使用 Qwen3-4B、BF16 标准 LoRA，不使用 4-bit/8-bit 量化；
+- 训练采用分阶段 Qwen3 路线：本地 RTX 4060 8GB 使用 0.6B Smoke 和 1.7B 候选，云端以 8B 作为正式 Pilot/Scale 候选，14B 及以上仅在 8B 边际收益明确时开展；统一使用 BF16 标准 LoRA，不默认使用 4-bit/8-bit 量化；
 - Compiler 的唯一输入是 `ResolvedScenarioSpec`；
 - `data/releases` 一旦 finalize 就只读，禁止原地覆盖；
 - 失败样本进入 quarantine，不能直接加入正向 SFT。

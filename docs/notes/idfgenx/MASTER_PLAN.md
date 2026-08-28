@@ -1,5 +1,7 @@
 # IDFGenX AI 实施总计划
 
+> 2026-08-28 更新：`IDFGX-X-006` 已冻结本地 Qwen3-0.6B/1.7B 到云端 Qwen3-8B+ 的分阶段 BF16 标准 LoRA 路线。RTX 4060 8GB 负责本地 Smoke 与效果迭代，8B 负责云端正式 Pilot/Scale，4B 降为可选对照，14B+ 仅由 8B 边际收益触发；见 ADR-0002。
+
 > 2026-08-28 更新：`IDFGX-M1-007` 已完成版本化中英文 clean Prompt 模板；四个 family 均从诚实 Draft 确定性渲染，配置哈希、特殊名称、空披露和版本追溯门禁已验证。下一项为 `IDFGX-M1-008` 鲁棒 Prompt family 与 `IDFGX-M1-009` 反向标定。
 
 > 2026-08-26 更新：`IDFGX-M1-005` 已完成确定性离散分层与 LHS/Sobol 连续采样；训练目录精确执行 40% simple / 60% complex 配额并排除 C5，显式 C5 均通过动态训练包络 Hard/OOD 门禁。
@@ -38,6 +40,7 @@ M0 共享核心
 | IDFGX-X-002 | 配置 Ruff、类型检查、pytest 和前端检查 | X-001 | 质量配置与基础 CI 命令 | proposed |
 | IDFGX-X-003 | 建立测试目录和 Golden fixture 约定 | X-001 | unit/integration/golden/e2e 骨架 | proposed |
 | IDFGX-X-004 | 将现有 server 业务逐步迁入 `idfgenx/simulation` | X-003 | 薄 route、兼容 re-export、回归测试 | proposed |
+| IDFGX-X-006 | 冻结本地 0.6B/1.7B 到云端 8B+ 的分阶段训练策略 | SETUP-002 | ADR-0002、训练/评估/部署文档 | done |
 
 ## 3. M0：共享核心与 Compiler
 
@@ -100,14 +103,14 @@ M1 发布门：进入 release 的标签 V0–V6 通过率 100%，Prompt 可反�
 | --- | --- | --- | --- | --- |
 | IDFGX-M2-001 | 实现 release/view 读取和 manifest 校验 | M1-015 | training dataset loader | proposed |
 | IDFGX-M2-002 | 实现 chat template、loss mask 和 no-truncation gate | M2-001 | collator/token report | proposed |
-| IDFGX-M2-003 | 完成 Qwen3-1.7B Spec 训练 smoke | M2-002 | smoke Adapter/report | proposed |
-| IDFGX-M2-004 | 完成 Qwen3-4B Spec 单卡 4090 Pilot | M1-016/M2-003 | Spec Adapter | proposed |
-| IDFGX-M2-005 | 完成双卡 4090 DDP 复现 | M2-004 | distributed report | proposed |
-| IDFGX-M2-006 | 训练 Direct-All 独立 Adapter | M1-016/M2-003 | baseline Adapter | proposed |
-| IDFGX-M2-007 | 训练 Direct-Fragment 独立 Adapter | M1-016/M2-003 | baseline Adapter | proposed |
+| IDFGX-M2-003 | 完成 Qwen3-0.6B Spec 本地 1K Smoke | M2-002 | RTX 4060 smoke Adapter/report | proposed |
+| IDFGX-M2-004 | 完成 Qwen3-1.7B Spec 本地候选训练 | M2-003 | local candidate Adapter/report | proposed |
+| IDFGX-M2-005 | 完成 Qwen3-8B Spec 云端 10K Pilot | M1-016/M2-004 | Spec Pilot Adapter | proposed |
+| IDFGX-M2-006 | 完成 Qwen3-8B Direct-All 云端 Pilot | M1-016/M2-004 | baseline Adapter | proposed |
+| IDFGX-M2-007 | 完成 Qwen3-8B Direct-Fragment 云端 Pilot | M1-016/M2-004 | baseline Adapter | proposed |
 | IDFGX-M2-008 | 实现 checkpoint 自动小评估 | M0-013/M2-003 | callback/eval gate | proposed |
-| IDFGX-M2-009 | 导出 Adapter 和 Model Manifest | M2-004/008 | versioned model | proposed |
-| IDFGX-M2-010 | 完成 50K/100K 与 LoRA rank 消融 | M3 Pilot 决策 | scale models | proposed |
+| IDFGX-M2-009 | 导出 Adapter 和 Model Manifest | M2-005/008 | versioned model | proposed |
+| IDFGX-M2-010 | 完成 8B 50K Scale，并按收益决定 100K 或 14B+ | M3 Pilot 决策 | scale models | proposed |
 
 M2 发布门：无静默截断，训练来源和资源可追溯，Adapter 可由统一 ModelBackend 加载，Spec 输出能驱动 M0 完成端到端 IDF。
 
