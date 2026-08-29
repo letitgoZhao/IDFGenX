@@ -31,13 +31,13 @@ Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭�
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | 无 | M1-008 鲁棒 Prompt 已结束 | 启动 M1-009 |
+| IDFGX-M1-009 | ready | 已完成设计，等待实现计划 | 通过设计文档审阅后进入 writing-plans |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-M1-009 | Prompt 数值/单位/实体反向标定 | M1-007 完成 |
+| IDFGX-M1-009 | Prompt 数值/单位/实体反向标定 | M1-007/M1-008 完成 |
 | IDFGX-M1-010 | Canonical Sample 与内容哈希对象存储 | M0-013 完成 |
 
 ## 当前阻塞

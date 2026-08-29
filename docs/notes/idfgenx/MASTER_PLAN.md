@@ -87,7 +87,7 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 | IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | done |
 | IDFGX-M1-007 | 实现中英文 clean Prompt 模板 | M1-006 | prompt config v0.1 | done |
 | IDFGX-M1-008 | 实现单位、语序、专家表达和受控噪声 | M1-007 | robust prompt families | done |
-| IDFGX-M1-009 | 实现 Prompt 数值/单位/实体反向标定 | M1-007 | calibration report | proposed |
+| IDFGX-M1-009 | 实现 Prompt 数值/单位/实体反向标定 | M1-007 | calibration report | ready |
 | IDFGX-M1-010 | 实现 Canonical Sample 与内容哈希对象存储 | M0-013 | canonical records | proposed |
 | IDFGX-M1-011 | 实现 building family 去重和分组切分 | M1-010 | leak-free splits | proposed |
 | IDFGX-M1-012 | 导出 Spec/Direct-All/Direct-Fragment 视图 | M1-010/011 | JSONL/Parquet views | proposed |
