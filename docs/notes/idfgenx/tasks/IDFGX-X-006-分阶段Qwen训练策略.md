@@ -5,7 +5,7 @@ module: X
 status: done
 owner: Codex
 created: 2026-08-28
-updated: 2026-08-28
+updated: 2026-08-29
 depends_on: [IDFGX-SETUP-002]
 related_decisions: [ADR-0002]
 expected_report: docs/notes/idfgenx/reports/2026-08-28-IDFGX-X-006-Staged-Qwen-Training.md
@@ -109,6 +109,8 @@ git diff --name-only
   方案笔记维护；可推送的 ADR、任务、主计划、状态和报告已包含完整决策。
 - 2026-08-28：`main` 以纯快进方式推送至 `origin/main`，首次推送落点为
   `bb40bd3`；随后补交实施计划完成状态。
+- 2026-08-29：后续只读检查发现 `MASTER_PLAN.md` 总出口、M1 阶段表和
+  ADR-0001 背景仍残留固定 4B 表述；已按 ADR-0002 纠正并保留工件隔离决策。
 
 ## 12. 结果
 

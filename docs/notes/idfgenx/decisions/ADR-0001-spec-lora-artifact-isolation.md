@@ -13,7 +13,10 @@ superseded_by: null
 
 ## 背景
 
-生产主线训练 Qwen3-4B Spec-LoRA，使其把自然语言需求转换为
+> 模型规模与训练阶段已由 [ADR-0002](ADR-0002-staged-qwen-training.md) 更新；
+> 本 ADR 继续约束 Spec-LoRA 与 IDF 工件的隔离边界。
+
+生产主线训练 Spec-LoRA，使其把自然语言需求转换为
 `ScenarioSpecDraft`。官方 IDF 含有未支持 HVAC、外部依赖和多个等价
 高层解释；若把文件路径、文件内容或 IDF 哈希绑定为单条训练标签，会让
 模型学习文件偶然性而非受控的场景契约。

@@ -1,5 +1,10 @@
 # IDFGenX AI 实施总计划
 
+> 2026-08-29 更新：`IDFGX-M1-008` 已完成可审计的鲁棒 Prompt family；
+> 48 个显式变体计划覆盖单位、语序、等价表达和单一表层噪声，clean 兼容、
+> 数值/单位标签、Resolver 往返和不可表达输入门禁均已验证。下一项为
+> `IDFGX-M1-009` 反向标定。
+
 > 2026-08-28 更新：`IDFGX-X-006` 已冻结本地 Qwen3-0.6B/1.7B 到云端 Qwen3-8B+ 的分阶段 BF16 标准 LoRA 路线。RTX 4060 8GB 负责本地 Smoke 与效果迭代，8B 负责云端正式 Pilot/Scale，4B 降为可选对照，14B+ 仅由 8B 边际收益触发；见 ADR-0002。
 
 > 2026-08-28 更新：`IDFGX-M1-007` 已完成版本化中英文 clean Prompt 模板；四个 family 均从诚实 Draft 确定性渲染，配置哈希、特殊名称、空披露和版本追溯门禁已验证。下一项为 `IDFGX-M1-008` 鲁棒 Prompt family 与 `IDFGX-M1-009` 反向标定。
@@ -28,7 +33,7 @@ M0 共享核心
                     M5 部署与运维
 ```
 
-项目总出口：中英文 Prompt 能通过 Qwen3-4B Spec-LoRA 生成严格 ScenarioSpecDraft，经确定性 Compiler 得到 EnergyPlus v23.1 可执行 IDF，并完成验证、仿真、3D 展示；论文公平比较 Spec、Direct-All 和 Direct-Fragment 路线。
+项目总出口：中英文 Prompt 能通过正式 Qwen3-8B Spec-LoRA 候选生成严格 ScenarioSpecDraft，经确定性 Compiler 得到 EnergyPlus v23.1 可执行 IDF，并完成验证、仿真、3D 展示；论文公平比较 Spec、Direct-All 和 Direct-Fragment 路线。Qwen3-1.7B 可依据统一指标作为低资源生产候选，Qwen3-4B 仅作可选成本对照或回退。
 
 ## 2. Phase 0：仓库与工程基线
 
@@ -81,7 +86,7 @@ M0 发布门：100 Golden 的 schema、引用、几何、转换和最小仿真�
 | IDFGX-M1-005 | 实现离散分层与 LHS/Sobol 连续采样 | M1-004/M0-003 | deterministic sampler | done |
 | IDFGX-M1-006 | 定义 DisclosurePlan 和 Draft 派生规则 | M0-001/002 | disclosure schema | done |
 | IDFGX-M1-007 | 实现中英文 clean Prompt 模板 | M1-006 | prompt config v0.1 | done |
-| IDFGX-M1-008 | 实现单位、语序、专家表达和受控噪声 | M1-007 | robust prompt families | proposed |
+| IDFGX-M1-008 | 实现单位、语序、专家表达和受控噪声 | M1-007 | robust prompt families | done |
 | IDFGX-M1-009 | 实现 Prompt 数值/单位/实体反向标定 | M1-007 | calibration report | proposed |
 | IDFGX-M1-010 | 实现 Canonical Sample 与内容哈希对象存储 | M0-013 | canonical records | proposed |
 | IDFGX-M1-011 | 实现 building family 去重和分组切分 | M1-010 | leak-free splits | proposed |

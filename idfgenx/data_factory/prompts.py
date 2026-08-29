@@ -269,7 +269,7 @@ def render_clean_prompt(
                 "target_draft_schema_version": target.schema_version,
             },
         )
-    prompt = _render_prompt(target, family_config.id, config.field_order)
+    prompt = render_prompt_from_draft(target, family_config.id, config.field_order)
     return CleanPromptRecord(
         config_version=config.config_version,
         draft_schema_version=config.draft_schema_version,
@@ -303,12 +303,12 @@ def render_all_clean_prompts(
     )
 
 
-def _render_prompt(
+def render_prompt_from_draft(
     target: ScenarioSpecDraft,
     family: PromptFamily,
     field_order: tuple[str, ...],
 ) -> str:
-    """仅从目标 Draft 的 requested 字段渲染稳定自然语言。
+    """仅从目标 Draft 的 requested 字段渲染冻结的 clean 文本。
 
     Args:
         target: 已按 DisclosurePlan 派生的诚实 Draft。
@@ -316,11 +316,11 @@ def _render_prompt(
         field_order: 配置冻结的字段出现顺序。
 
     Returns:
-        不包含随机改写或隐式默认值的 clean Prompt。
+        不包含随机改写或隐式默认值的 clean Prompt，可供鲁棒基线复用。
     """
 
     if target.building_name.status is FieldStatus.REQUESTED:
-        _validate_building_name(str(_field_value(target, "building_name")))
+        validate_prompt_building_name(str(_field_value(target, "building_name")))
     renderers = {
         PromptFamily.ZH_CONCISE: _render_zh_concise,
         PromptFamily.ZH_EXPERT: _render_zh_expert,
@@ -330,8 +330,8 @@ def _render_prompt(
     return renderers[family](target, field_order)
 
 
-def _validate_building_name(name: str) -> None:
-    """拒绝会破坏 clean 模板分隔语法或反向标定的建筑名称。
+def validate_prompt_building_name(name: str) -> None:
+    """拒绝会破坏 Prompt 分隔语法或反向标定的建筑名称。
 
     v0.1 允许 Unicode 字母和数字、内部空格、下划线及连字符。名称必须至少
     包含一个字母或数字，且不能依赖首尾空白表达语义。
@@ -340,7 +340,7 @@ def _validate_building_name(name: str) -> None:
         name: DisclosurePlan 已标记为 requested 的原始建筑名称。
 
     Raises:
-        ConfigurationError: 名称无法无歧义地嵌入四个 clean family。
+        ConfigurationError: 名称无法无歧义地嵌入 clean 或 robust family。
     """
 
     if (

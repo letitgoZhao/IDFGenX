@@ -95,3 +95,10 @@ Pilot/Scale。Qwen3-4B 保留为可选成本对照或资源回退，14B 及以�
 - Plan：`docs/superpowers/plans/2026-08-28-staged-qwen-training.md`
 - Commit/PR：`7b1c1f6`（设计）、`bb40bd3`（文档实施）与本报告所在收口提交；未创建 PR
 - Dataset/Model/Eval run：无
+
+## Correction（2026-08-29）
+
+后续检查发现 `MASTER_PLAN.md` 的项目总出口、M1 的 10K Pilot 阶段表和
+ADR-0001 背景仍保留固定 Qwen3-4B 表述。现已按 ADR-0002 改为云端
+Qwen3-8B 正式 Pilot/Scale；ADR-0001 只移除过期模型规模，不改变
+Spec-LoRA 与 IDF 工件隔离决策。

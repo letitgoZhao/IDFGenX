@@ -1,5 +1,10 @@
 # IDFGenX AI 开发当前状态
 
+> 2026-08-29：`IDFGX-M1-008` 已完成。新增版本化 robust prompt config、
+> 48 个显式变体计划和 192 条四 family 确定性输出组合；`m/ft`、
+> `degC/degF`、语序、等价专家表达和无语义表层噪声均有完整追溯。Prompt
+> 专项 29/29、全量 131/131 通过，独立复核无剩余问题；下一项为 M1-009。
+
 > 2026-08-28：`IDFGX-X-006` 已完成。训练路线调整为本地 RTX 4060 8GB 上的 Qwen3-0.6B Smoke、Qwen3-1.7B 效果候选和云端 Qwen3-8B 正式 Pilot/Scale；4B 仅作可选成本对照/回退，14B+ 只由 8B 容量和边际收益证据触发。ADR-0002、任务表、训练/评估/部署边界和实施计划已同步；本任务未下载模型或运行训练，RTX 4060 的 1.7B 可行性仍须后续显存 smoke 验证。
 
 > 2026-08-26：`IDFGX-M1-005` 已完成。新增版本化采样策略、SciPy LHS/Sobol 连续采样、离散组合分层、稳定子 seed、拒绝统计和追溯哈希；训练批次精确执行 40%/60% 配额并排除 C5，显式 C5 必须真实位于动态训练包络外；策略配额和拒绝快照已深冻结。采样专项 16/16、全量 102/102 测试通过；下一项为 M1-007。
@@ -16,23 +21,22 @@
 
 > 2026-08-28：`IDFGX-M1-007` 已完成。新增版本化中英文 clean Prompt 配置与四个确定性 family；Prompt 仅渲染诚实 Draft 的 requested 字段，配置/Draft 版本和哈希可追溯，特殊名称与空披露被门禁拒绝。Prompt 专项 13/13、全量 115/115 通过；下一项为 M1-008/M1-009。
 
-> 更新时间：2026-08-28
+> 更新时间：2026-08-29
 
 ## 当前阶段
 
-Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。M1 已冻结场景桶、DisclosurePlan、确定性采样器和四类 clean Prompt；采样与 Prompt 输出均有版本及哈希追溯。训练阶段已冻结本地 0.6B/1.7B → 云端 8B+ 的模型晋级门。下一阶段实现鲁棒 Prompt family、反向标定与 Canonical Sample。
+Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭环已经完成。M1 已冻结场景桶、DisclosurePlan、确定性采样器、四类 clean Prompt 和 48 个鲁棒变体计划；采样与 Prompt 输出均有版本及哈希追溯。训练阶段已冻结本地 0.6B/1.7B → 云端 8B+ 的模型晋级门。下一阶段实现反向标定与 Canonical Sample。
 
 ## 活动任务
 
 | 任务 | 状态 | 当前工作 | 下一出口 |
 | --- | --- | --- | --- |
-| 无 | 无 | M1-007 clean Prompt 已结束 | 启动 M1-008 或 M1-009 |
+| 无 | 无 | M1-008 鲁棒 Prompt 已结束 | 启动 M1-009 |
 
 ## 下一批 Ready
 
 | 任务 | 内容 | 前置条件 |
 | --- | --- | --- |
-| IDFGX-M1-008 | 单位、语序、专家表达和受控噪声 | M1-007 完成 |
 | IDFGX-M1-009 | Prompt 数值/单位/实体反向标定 | M1-007 完成 |
 | IDFGX-M1-010 | Canonical Sample 与内容哈希对象存储 | M0-013 完成 |
 
@@ -49,6 +53,9 @@ Draft → ResolvedScenarioSpec → Resolver → Compiler 的 Windows 验证闭�
 
 ## 最近完成
 
+- `IDFGX-M1-008`：完成 48 个显式鲁棒变体计划、192 条四 family 组合、
+  单位目标 Draft、配置哈希、可逆精度/perimeter 门禁和无语义表层噪声；
+  专项 29/29、全量 131/131 通过，独立复核 Ready to merge；
 - `IDFGX-X-006`：冻结 RTX 4060 8GB 本地 0.6B/1.7B 与云端 8B+ 的分阶段 BF16 标准 LoRA 路线，新增 ADR-0002 并同步 M2/M3/M5、主计划和仓库规则；
 - `IDFGX-M1-007`：完成四类中英文 clean Prompt、诚实披露、配置哈希、版本追溯和歧义输入门禁；专项 13/13、全量 115/115 通过；
 - `IDFGX-M1-005`：完成离散分层与 LHS/Sobol 连续采样，训练配额、C5 隔离、深冻结审计字段、确定性和失败边界均有测试；专项 16/16、全量 102/102 通过；

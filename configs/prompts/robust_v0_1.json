@@ -1,0 +1,46 @@
+{
+  "config_version": "0.1",
+  "draft_schema_version": "0.1",
+  "families": [
+    "zh_concise",
+    "zh_expert",
+    "en_concise",
+    "en_expert"
+  ],
+  "clause_orders": [
+    {
+      "id": "canonical",
+      "fields": [
+        "building_name",
+        "building_use",
+        "length",
+        "width",
+        "floor_to_floor_height",
+        "stories",
+        "zone_layout",
+        "window_to_wall_ratio",
+        "heating_setpoint",
+        "cooling_setpoint"
+      ]
+    },
+    {
+      "id": "constraints_first",
+      "fields": [
+        "building_name",
+        "building_use",
+        "heating_setpoint",
+        "cooling_setpoint",
+        "window_to_wall_ratio",
+        "zone_layout",
+        "stories",
+        "length",
+        "width",
+        "floor_to_floor_height"
+      ]
+    }
+  ],
+  "length_units": ["m", "ft"],
+  "temperature_units": ["degC", "degF"],
+  "expression_variants": ["standard", "alternate"],
+  "controlled_noises": ["none", "polite_filler", "context_filler"]
+}
